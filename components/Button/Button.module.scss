@@ -1,0 +1,291 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &_justify {
+    &_center {
+      justify-content: center;
+    }
+    &_start {
+      justify-content: flex-start;
+    }
+    &_end {
+      justify-content: flex-end;
+    }
+    &_spaceAround {
+      justify-content: space-around;
+    }
+    &_spaceBetween {
+      justify-content: space-between;
+    }
+  }
+  &_align {
+    &_center {
+      align-items: center;
+    }
+    &_end {
+      align-items: flex-end;
+    }
+    &_start {
+      align-items: flex-start;
+    }
+    &_stretch {
+      align-items: stretch;
+    }
+  }
+  &_theme_ {
+    &gradient {
+      background: $gradientPrimaryTriple;
+      // background-size: 200% 100%;
+      background-size: 300% 100%;
+      animation: gradientOutHalf 0.3s ease forwards;
+      @include transition(opacity);
+      &:hover {
+        animation: gradientInHalf 0.3s ease forwards;
+      }
+      &:active {
+        animation: gradientInEnd 0.3s ease forwards;
+      }
+      &:disabled {
+        opacity: 0.25;
+        animation: none;
+      }
+    }
+    &bordered,
+    &borderedSecondaty {
+      @include border($borderAccentOpacity);
+      @include transition(border-color background-color, 0.3s 0.2s);
+      & span {
+        @include transition(color);
+      }
+      & svg {
+        @include transition(fill);
+      }
+      &:hover {
+        border-color: $borderAccent;
+      }
+      &:active {
+        background-color: $accentFireRich;
+        border-color: $accentFireRich;
+        & span {
+          color: #fff;
+        }
+        & svg {
+          fill: #fff;
+        }
+      }
+    }
+    &borderedSecondaty {
+      &:hover {
+        & span {
+          color: $accentFire;
+        }
+        & svg {
+          fill: $accentFire;
+        }
+      }
+      &:active {
+        & svg {
+          fill: #fff;
+        }
+        & span {
+          color: #fff;
+        }
+      }
+    }
+    &borderedGradientPrimary,
+    &borderedGradientSecondary {
+      position: relative;
+      outline: none;
+      & svg {
+        @include transition(fill);
+        fill: $accentFire;
+      }
+      & span + svg {
+        fill: $accentHot;
+      }
+      &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        background: $gradientPrimaryDoubleInverted;
+        background-size: 200% 100%;
+        animation: gradientOut 0.3s ease forwards;
+        opacity: 0.2;
+        @include transition(opacity);
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        left: 1px;
+        right: 1px;
+        top: 1px;
+        bottom: 1px;
+        border-radius: 7px;
+        background-color: $bgPrimary;
+      }
+      &:hover:before {
+        opacity: 1;
+      }
+      &:active {
+        &:before {
+          animation: gradientIn 0.3s ease forwards;
+        }
+        & svg {
+          fill: $accentHot;
+        }
+        & > span {
+          animation: gradientIn 0.3s ease forwards;
+        }
+      }
+    }
+    &borderedGradientSecondary {
+      &::after {
+        background-color: $bgSecondary;
+      }
+    }
+    &light {
+      background-color: $bgGreyLight4;
+    }
+    &grey {
+      background-color: $bgGreyInput;
+      @include transition(background-color color fill stroke);
+      &:hover {
+        fill: $accentFire;
+        span {
+          color: $accentFire;
+        }
+      }
+      &:active {
+        background-color: $accentFire;
+        fill: #fff;
+        span {
+          color: #fff;
+        }
+      }
+    }
+    &dark {
+      background-color: #191919;
+    }
+    &sunshine {
+      background-color: $accentFire;
+      @include transition(background-color);
+      &:hover {
+        background-color: $accentFireRich;
+      }
+      &:active {
+        @include transition(background-color fill, 0.1s);
+        background-color: $bgGreyLight1;
+        span {
+          color: $textMoonlight;
+        }
+        svg {
+          fill: $textMoonlight;
+        }
+      }
+      &:disabled {
+        opacity: 0.6;
+        &:hover,
+        &:active {
+          background-color: $accentFire;
+        }
+      }
+    }
+    &red {
+      background-color: rgba(240, 40, 63, 0.07);
+      @include transition(background-color);
+      > span {
+        color: $accentHotRed;
+        @include transition(color);
+      }
+      &:hover {
+        background-color: $accentHotRed;
+        > span {
+          color: #fff;
+        }
+      }
+    }
+    &transparent {
+      border-radius: 0;
+      @include transition(transform, 0.1s);
+      > span {
+        @include transition(color);
+      }
+      &:hover {
+        > span {
+          color: $accentHot;
+        }
+      }
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@keyframes gradientIn {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes gradientInHalf {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 50%;
+  }
+}
+
+@keyframes gradientInEnd {
+  0% {
+    background-position-x: 50%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes gradientOutHalf {
+  0% {
+    background-position-x: 50%;
+  }
+
+  100% {
+    background-position-x: 0%;
+  }
+}
+
+@keyframes gradientOut {
+  0% {
+    background-position-x: 100%;
+  }
+
+  100% {
+    background-position-x: 0%;
+  }
+}

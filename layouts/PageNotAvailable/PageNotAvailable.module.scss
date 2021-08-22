@@ -1,0 +1,39 @@
+@import "../../styles/theme";
+
+.notAvailable {
+  flex: 1;
+  background-color: $bgSecondary;
+  &__title {
+    line-height: 55px;
+    text-align: center;
+  }
+  &__content {
+    width: 540px;
+  }
+  &__btn {
+    width: 180px;
+    margin: 34px auto 0;
+    &Text {
+      line-height: 44px;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 575px) {
+  .notAvailable {
+    &__title {
+      line-height: 45px;
+      padding: 0 40px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .notAvailable {
+    &__title {
+      font-size: 35px;
+      line-height: 40px;
+    }
+  }
+}

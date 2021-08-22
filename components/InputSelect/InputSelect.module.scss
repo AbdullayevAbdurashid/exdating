@@ -1,0 +1,140 @@
+@import "../../styles/mixins";
+@import "../../styles/theme";
+
+.select {
+  position: relative;
+  &:hover {
+    cursor: pointer;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 49px;
+    z-index: 1;
+    left: 0;
+    right: 0;
+  }
+  &__input {
+    pointer-events: none;
+    user-select: none;
+    &Hidden {
+      display: none;
+    }
+  }
+  &__selected {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 34px;
+    padding-left: 16px;
+    &Text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &__icon {
+    position: absolute;
+    font-size: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 17px;
+    @include transition(transform);
+  }
+  &__dropdown {
+    position: absolute;
+    overflow: hidden;
+    box-shadow: 0px 8px 13px rgba(47, 47, 47, 0.1);
+    border-radius: 0px 0px 7px 7px;
+    background: $bgPrimary;
+    z-index: 1;
+    width: 100%;
+    max-height: 0px;
+    @include transition(max-height, 0.3s, $timingCubicPrimary);
+    &Inner {
+      max-height: 200px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $accentFireOpacity;
+        border-radius: 4px;
+      }
+    }
+    &Item {
+      padding: 0 20px;
+      line-height: 33px;
+      color: $textPrimary;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @include transition(color);
+      &:hover {
+        cursor: pointer;
+        color: $textOrange;
+      }
+    }
+  }
+  &_active & {
+    &__icon {
+      transform: rotate(180deg) translateY(1px);
+    }
+    &__dropdown {
+      max-height: 200px;
+    }
+  }
+  &_theme_bordered & {
+    & {
+      &__input {
+        > input {
+        }
+      }
+    }
+  }
+  &_theme_borderedSplit & {
+    & {
+      &__input {
+        width: 60px;
+        > input {
+          line-height: 35px;
+          border-color: $borderGrey;
+        }
+      }
+      &__icon {
+        width: 25px;
+        height: 100%;
+        right: 0;
+        border-left: 1px solid $borderGrey;
+        top: 0;
+        transform: none;
+        svg {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 10px;
+          fill: $textMoonlight;
+          @include transition(transform);
+        }
+      }
+    }
+  }
+  &_theme_borderedSplit.select_active & {
+    & {
+      &__icon {
+        svg {
+          transform: rotate(-180deg) translateY(2px);
+        }
+      }
+    }
+  }
+}

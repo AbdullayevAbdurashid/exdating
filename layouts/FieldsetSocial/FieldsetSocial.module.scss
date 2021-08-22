@@ -1,0 +1,85 @@
+.fieldset {
+  &__title {
+    line-height: 24px;
+  }
+  &__option {
+    &Text {
+      margin-left: 10px;
+      text-transform: capitalize;
+    }
+  }
+  &__social {
+    &Select {
+      &Mobile {
+        display: none;
+      }
+    }
+    &Block {
+      padding-top: 12px;
+    }
+    &Content {
+      flex: 1;
+    }
+    &Row {
+      & + & {
+        margin-top: 5px;
+      }
+    }
+    &Nickname {
+      width: 174px;
+    }
+    &Or {
+      margin: 0 15px;
+    }
+    &Url {
+      flex: 1;
+    }
+    &NicknameOrAddress,
+    &NicknameAddress {
+      flex: 1;
+      margin-left: 11px;
+    }
+    &NicknameAddress {
+      display: none;
+    }
+  }
+  &__btn {
+    &AddSocial {
+      margin-left: 16px;
+      &Text {
+        line-height: 49px;
+        padding: 0 24px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 860px) {
+  .fieldset {
+    &__social {
+      &NicknameOrAddress {
+        display: none;
+      }
+      &NicknameAddress {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .fieldset {
+    &__social {
+      &Select {
+        display: none;
+        &Mobile {
+          display: block;
+        }
+      }
+    }
+    &__btnAddSocial {
+      display: none;
+    }
+  }
+}

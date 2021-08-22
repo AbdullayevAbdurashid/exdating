@@ -1,0 +1,342 @@
+@import "../../styles/theme";
+
+.profile {
+  flex: 1;
+  background-color: $bgSecondary;
+  &__myProfile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+    padding-bottom: 21px;
+    border-bottom: 1px solid $borderGreyMedium;
+    &Btn {
+      & + & {
+        margin-left: 10px;
+      }
+      &Text {
+        line-height: 33px;
+        padding: 0 26px;
+      }
+    }
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    // align-items: flex-start;
+    margin-top: 47px;
+    margin-bottom: 47px;
+  }
+  &__info {
+    position: sticky;
+    top: 121px;
+    &Box {
+      border: 1px solid $borderFeedback;
+      width: 342px;
+      padding: 30px;
+    }
+    &General {
+      line-height: 24px;
+      &Texts {
+        padding-left: 18px;
+        text-align-last: left;
+        overflow: hidden;
+        flex: 1;
+      }
+      &Location {
+        margin-top: 7px;
+        svg,
+        span {
+          vertical-align: middle;
+        }
+        &Text {
+          margin-left: 5px;
+        }
+      }
+      &Burger {
+        display: none;
+      }
+    }
+    &Description {
+      display: block;
+      text-align: left;
+      line-height: 24px;
+      margin-top: 17px;
+    }
+    &Btn {
+      &Box {
+        margin: 14px -4px 0;
+      }
+      &Message,
+      &Subscribe {
+        line-height: 33px;
+        flex: 1;
+        margin: 0 4px;
+      }
+    }
+    &Control {
+      justify-content: center;
+      margin-top: 16px;
+      margin-bottom: 40px;
+      text-align: center;
+      &Btn {
+        display: inline;
+        line-height: 24px;
+      }
+    }
+    &Block {
+      margin-top: 28px;
+    }
+  }
+  &__feedbacks {
+    flex: 1;
+    margin-left: 112px;
+    &Tabs {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      &Wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &Empty {
+      flex: 1;
+      &Text {
+        max-width: 140px;
+        line-height: 24px;
+      }
+      &Btn {
+        line-height: 36px;
+        margin-top: 20px;
+        padding: 0 20px;
+      }
+    }
+  }
+  &__feedbacks,
+  &__drafts {
+    &List {
+      margin: 17px 0 50px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      &_active {
+        display: flex;
+        min-height: 100%;
+      }
+      &Item {
+        flex: 0 0 48%;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  &__tabs {
+    &Nav {
+      display: flex;
+      &Item {
+        & + & {
+          margin-left: 12px;
+        }
+        &About {
+          display: none;
+        }
+      }
+    }
+  }
+  &__bannedMessage {
+    width: 192px;
+    line-height: 24px;
+    text-align: center;
+  }
+  &_self & {
+    &__info {
+      &BtnBox {
+        display: none;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1300px) {
+  .profile {
+    &__feedbacks {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .profile {
+    &__container {
+      flex-direction: column;
+      margin-top: 0px;
+      flex: 1;
+    }
+    &__myProfile {
+      border-bottom: none;
+    }
+    &__info {
+      position: relative;
+      top: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      &Btn {
+        &Box {
+          justify-content: flex-start;
+        }
+        &Message,
+        &Subscribe {
+          flex: none;
+          width: 180px;
+        }
+      }
+      &Block {
+        border-top: 1px solid $borderGrey;
+        &_banned {
+          display: none;
+        }
+      }
+      &Control {
+        margin-bottom: 10px;
+      }
+    }
+    &__feedbacks {
+      margin-top: 0;
+      margin-left: 0;
+      &Tabs {
+        margin-top: 38px;
+      }
+    }
+    &__infoBox {
+      width: 100%;
+    }
+    &__banned {
+      &Message {
+        padding: 40px 0;
+      }
+      &Stats {
+        width: 100%;
+        border: 1px solid $borderFeedback;
+        padding: 30px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .profile {
+    &__feedbacks,
+    &__drafts {
+      &ListItem {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .profile {
+    &__myProfile {
+      border-bottom: 1px solid $borderFeedback;
+      margin-top: 30px;
+      &Buttons {
+        display: none;
+      }
+    }
+    &__container {
+      margin-top: 28px;
+    }
+    &__info {
+      &General {
+        position: relative;
+        padding-right: 40px;
+        &Burger {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+        }
+      }
+      &Control {
+        display: none;
+      }
+      &Stat,
+      &Contacts,
+      &SocialList {
+        display: none;
+      }
+      &Box {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+      }
+      &Btn {
+        &Box {
+          justify-content: space-between;
+        }
+        &Message,
+        &Subscribe {
+          flex: 1;
+          width: auto;
+        }
+      }
+    }
+    &__banned {
+      &Stats {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+    &__tabs {
+      &Nav {
+        display: flex;
+        &Item {
+          &About {
+            display: block;
+          }
+          &Text {
+            color: $textMoonlight;
+            &_active {
+              color: $textGreyDark;
+            }
+          }
+        }
+      }
+    }
+    &_self & {
+      &__info {
+        &BtnBox {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .profile {
+    &__info {
+      &General {
+        padding-right: 20px;
+        &Burger {
+          right: -15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .profile {
+    &__myProfile {
+      padding-bottom: 15px;
+      &Title {
+        font-size: 35px;
+      }
+    }
+  }
+}

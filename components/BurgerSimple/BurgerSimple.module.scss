@@ -1,0 +1,62 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+%dot {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #d6d2cc;
+  border-radius: 50%;
+}
+%childdot {
+  position: absolute;
+}
+
+.burger {
+  display: block;
+  background-color: transparent;
+  border: none;
+  font-size: 0;
+  padding: 7px 13px;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &__dots {
+    position: relative;
+    display: block;
+    width: 3px;
+    padding: 6px 0;
+  }
+  &__dot {
+    @extend %dot;
+    @include transition(background-color);
+    &:before {
+      content: "";
+      @extend %dot;
+      @extend %childdot;
+      top: 0;
+      @include transition(background-color);
+    }
+    &:after {
+      content: "";
+      @extend %dot;
+      @extend %childdot;
+      bottom: 0;
+      @include transition(background-color);
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover & {
+    &__dot {
+      background-color: $accentFire;
+      &:before,
+      &:after {
+        background-color: $accentFire;
+      }
+    }
+  }
+}

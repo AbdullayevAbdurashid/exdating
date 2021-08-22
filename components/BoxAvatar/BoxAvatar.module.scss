@@ -1,0 +1,13 @@
+.avatar {
+  position: relative;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  background: #f1f1f1 url("/avatars/icon-no-avatar.svg") center bottom no-repeat;
+  background-size: 85%;
+  width: 40px;
+  height: 40px;
+  img {
+    width: 100%;
+  }
+}

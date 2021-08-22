@@ -1,0 +1,14 @@
+.button {
+  padding: 0 52px;
+  height: 42px;
+  &__text {
+    z-index: 1;
+    & > img,
+    & > span {
+      vertical-align: middle;
+    }
+    & > span {
+      margin-left: 6px;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@import "../../styles/theme";
+
+.iconSocial {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bgIconDefault;
+  transition: opacity linear 0.3s;
+  & > svg {
+    fill: #fff;
+  }
+  &_type_ {
+    &youtube {
+      background-color: $youtube;
+    }
+    &twitter {
+      background-color: $twitter;
+    }
+    &facebook {
+      background-color: $facebook;
+    }
+    &instagram {
+      background: $instagram;
+    }
+    &google {
+      background: $google;
+    }
+    &apple {
+      background: $apple;
+    }
+    &vk {
+      background: $vk;
+      & > svg {
+        position: absolute;
+        top: 50%;
+        margin-top: -4px;
+        left: auto;
+        right: auto;
+      }
+    }
+  }
+  &_coloredIcons {
+    background: #f1ece2;
+    svg {
+      transform: scale(1.2);
+    }
+  }
+  &_coloredIcons.iconSocial {
+    &_type_ {
+      &youtube {
+        svg {
+          fill: $youtube;
+          transform: scale(1);
+        }
+      }
+      &twitter {
+        svg {
+          fill: $twitter;
+        }
+      }
+      &facebook {
+        svg {
+          fill: $facebook;
+        }
+      }
+      &google {
+        svg {
+          fill: $google;
+        }
+      }
+      &apple {
+        svg {
+          fill: $apple;
+        }
+      }
+      &vk {
+        svg {
+          fill: $vk;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  &_size_sm {
+    width: 29px;
+    height: 29px;
+  }
+  &_size_smd {
+    width: 33px;
+    height: 33px;
+  }
+  &_size_md {
+    width: 38px;
+    height: 38px;
+  }
+  &_size_lg {
+    width: 42px;
+    height: 42px;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}

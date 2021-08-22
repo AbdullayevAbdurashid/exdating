@@ -1,0 +1,16 @@
+.notification {
+  &__content {
+    margin-left: 12px;
+  }
+  &__message {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+  &__date {
+    margin-top: 5px;
+    &Text {
+      line-height: 18px;
+    }
+  }
+}

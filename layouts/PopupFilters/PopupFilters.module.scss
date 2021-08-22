@@ -1,0 +1,62 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.popup {
+  position: relative;
+  flex: 1;
+  border-radius: 0;
+  &__filters {
+    &Title {
+      line-height: 50px;
+      padding: 0 16px;
+    }
+    &List {
+      display: flex;
+      padding: 0 16px;
+      &Item {
+        & + & {
+          margin-left: 10px;
+        }
+      }
+    }
+    &Buttons {
+      flex: 1;
+      border-bottom: 1px solid $borderFeedback;
+      &Item {
+        & + & {
+          border-top: 1px solid $borderFeedback;
+        }
+        &Btn {
+          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          line-height: 45px;
+          padding: 0 20px;
+        }
+        &Icon {
+          fill: $textGreyLight1;
+          transform: rotate(-90deg);
+          svg {
+            width: 7px;
+            height: 4px;
+          }
+        }
+      }
+    }
+  }
+  &__filter {
+    &SubMenu {
+      position: absolute;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: $bgPrimary;
+      z-index: 11;
+      @include transition(transform, 0.4s, $timingCubicSecondary);
+      &_active {
+        transform: translateX(-100%);
+      }
+    }
+  }
+}

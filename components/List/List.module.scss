@@ -1,0 +1,28 @@
+@import "../../styles/theme";
+
+.list {
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: $textGreyDark;
+    & + & {
+      margin-top: 14px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $accentFire;
+    }
+  }
+}

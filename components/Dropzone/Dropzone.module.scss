@@ -1,0 +1,108 @@
+@import "../../styles/theme";
+
+.dropzone {
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+  &__dropzone {
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px dashed $borderAccentOpacity;
+    padding: 28px 0;
+    &:focus {
+      outline: none;
+    }
+    > svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    font-size: 20px;
+    margin-top: 15px;
+    line-height: 24px;
+    border-bottom: 1px solid $borderAccentOpacity;
+    &Sub {
+      margin-top: 10px;
+    }
+  }
+  &__image {
+    &List {
+      padding: 0 90px;
+    }
+    &Box {
+      width: 82px;
+      height: 56px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 7px;
+      img {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &Wrapper {
+      position: relative;
+      margin: 15px 10px;
+    }
+  }
+  &__btn {
+    &RemoveImage {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      z-index: 100;
+      font-size: 5px;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        z-index: -1;
+        border-radius: 50%;
+        top: 1px;
+        right: 1px;
+      }
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: $accentFire;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .dropzone {
+    &__dropzone {
+      flex-direction: row;
+      > svg {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    &__wrapper {
+      margin-left: 11px;
+      align-items: flex-start;
+    }
+    &__title {
+      margin: 0;
+      font-size: 16px;
+      &Sub {
+        margin-top: 6px;
+      }
+    }
+  }
+}

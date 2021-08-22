@@ -1,0 +1,68 @@
+@import "../../../styles/theme";
+@import "../../../styles/mixins";
+
+.trackBox {
+  position: relative;
+  padding: 26px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  &__btn {
+    &Close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      svg {
+        fill: $textMoonlight;
+        @include transition(fill);
+      }
+      &:hover {
+        svg {
+          fill: $textPrimary;
+        }
+      }
+    }
+    &Edit {
+      width: 100%;
+      margin-top: 20px;
+      &Text {
+        line-height: 41px;
+      }
+    }
+  }
+  &__trackIndex {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: $gradientWhiteTransparent;
+    }
+    &Text {
+      color: #e1e1df;
+      font-size: 100px;
+      font-weight: 300;
+    }
+  }
+  &__name {
+    display: block;
+    margin-top: 30px;
+  }
+  &__location {
+    margin-top: 5px;
+    &Text {
+      display: inline;
+      line-height: 24px;
+      margin-left: 5px;
+    }
+  }
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6px -6px 0;
+    &Item {
+      margin: 6px;
+    }
+  }
+}

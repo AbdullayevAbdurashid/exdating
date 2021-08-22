@@ -1,0 +1,46 @@
+@import "../../styles/theme";
+
+.popup {
+  width: 383px;
+  &__content {
+    padding: 20px 3px 8px 20px;
+    &Wrapper {
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    &List {
+      margin-top: 8px;
+      padding-right: 17px;
+    }
+    &Item {
+      padding: 12px 0;
+      & + & {
+        border-top: 1px solid $borderGrey;
+      }
+    }
+    &Last {
+      margin-top: 26px;
+      text-align: center;
+      padding-bottom: 12px;
+    }
+    &Empty {
+      height: 150px;
+      fill: $textMoonlight;
+      &Text {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .popup {
+    &__content {
+      padding-bottom: 70px;
+      height: 100%;
+      &Wrapper {
+        max-height: 100%;
+      }
+    }
+  }
+}

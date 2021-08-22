@@ -1,0 +1,114 @@
+.phoneConfirmation {
+  padding: 40px 45px;
+  width: 453px;
+  &__title {
+    line-height: 55px;
+  }
+  &__description {
+    margin-top: 20px;
+  }
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    &Input {
+      & + & {
+        margin-left: 11px;
+      }
+    }
+    &Submit {
+      padding: 0 47px;
+      line-height: 49px;
+    }
+  }
+  &__status {
+    position: relative;
+    margin-top: 8px;
+    padding-top: 15px;
+    &Timer {
+      line-height: 24px;
+      height: 24px;
+    }
+    &CodeSent {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &Btn {
+      line-height: 24px;
+      padding: 0;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .phoneConfirmation {
+    &__title {
+      line-height: 45px;
+    }
+  }
+}
+@media (max-width: 575px) {
+  .phoneConfirmation {
+    width: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .phoneConfirmation {
+    width: 100%;
+    padding-bottom: 60px;
+    &__title {
+      font-size: 35px;
+      line-height: 39px;
+    }
+    &__description {
+      margin-top: 15px;
+    }
+    &__form {
+      align-items: flex-end;
+      &Submit {
+        padding: 0 36px;
+        line-height: 42px;
+      }
+    }
+    &__status {
+      position: absolute;
+      width: 100%;
+      bottom: 20px;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      &CodeSent {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .phoneConfirmation {
+    &__title {
+      text-align: center;
+    }
+    &__description {
+      text-align: center;
+    }
+    &__form {
+      flex-direction: column;
+      align-items: center;
+      &Submit {
+        margin-top: 20px;
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.tag {
+  position: relative;
+  padding: 0 9px;
+  border-radius: 30px;
+  @include border($borderDarkMoonlignt);
+  @include transition(border-color);
+  line-height: 25px;
+  &__text {
+    font-size: 11px;
+    font-weight: 500;
+    color: $textMoonlight;
+    text-transform: uppercase;
+    @include transition(color);
+  }
+  &__close {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #dcd4c8;
+    color: #f1efec;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    text-align: center;
+    line-height: 12px;
+    font-size: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+  &:hover {
+    @include border($accentFireOpacity);
+    cursor: pointer;
+  }
+  &:hover & {
+    &__text {
+      color: $accentFire;
+    }
+  }
+  &_theme_destructible {
+    background-color: #f1efec;
+    border-color: #f1efec;
+    padding-right: 25px;
+  }
+  &_theme_destructible & {
+    &__text {
+      color: $accentFire;
+    }
+  }
+  &_theme_active {
+    @include border($accentFire);
+  }
+  &_theme_active & {
+    &__text {
+      color: $accentFire;
+    }
+  }
+}

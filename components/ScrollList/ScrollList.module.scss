@@ -1,0 +1,33 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.scrollList {
+  padding: 0 2px;
+  &__item {
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: $accentFire transparent;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $accentFireOpacity;
+      border-radius: 4px;
+    }
+  }
+  &__option {
+    span {
+      @include transition(color);
+    }
+    &:hover {
+      cursor: pointer;
+      span {
+        color: $accentFire;
+      }
+    }
+  }
+}

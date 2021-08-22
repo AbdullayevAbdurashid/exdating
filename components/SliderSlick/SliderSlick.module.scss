@@ -1,0 +1,25 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.slick {
+  &__dot {
+    display: flex !important;
+    li {
+      font-size: 0;
+      button {
+        font-size: 0;
+        border: none;
+        width: 9px;
+        height: 9px;
+        background-color: #eeebe8;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+        @include transition(background-color);
+      }
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+}

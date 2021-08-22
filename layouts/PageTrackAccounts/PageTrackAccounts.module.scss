@@ -1,0 +1,161 @@
+@import "../../styles/theme";
+
+.track {
+  background-color: $bgSecondary;
+  padding-bottom: 25px;
+  flex: 1;
+  display: flex;
+  &__container {
+    padding-top: 90px;
+    flex: 1;
+    display: flex;
+  }
+  &__content {
+    position: relative;
+    padding: 0 220px 80px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__addBtn {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    line-height: 24px;
+  }
+  &__title {
+    flex: 1;
+    &Sub {
+      width: 320px;
+      line-height: 24px;
+    }
+    &_mobile {
+      display: none;
+    }
+  }
+  &__empty {
+    flex: 1;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 40px;
+    margin: 0 -1%;
+    &Item {
+      flex: 0 0 33.33%;
+      padding: 1%;
+      display: flex;
+    }
+    &Box {
+      flex: 1;
+    }
+  }
+  &__slider {
+    display: none;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1454px) {
+  .track {
+    &_-container {
+      padding-top: 70px;
+    }
+    &__content {
+      width: 860px;
+      padding: 0;
+      padding-bottom: 80px;
+      margin: 0 auto;
+    }
+    &__addBtn {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-top: 10px;
+    }
+    &__title {
+      &Block {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      &Sub {
+        margin-top: 5px;
+        width: auto;
+      }
+    }
+    &__list {
+      padding-top: 20px;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .track {
+    &__container {
+      padding-top: 40px;
+    }
+    &__content {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+@media (max-width: 860px) {
+  .track {
+    &__list {
+      &Item {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .track {
+    &__title {
+      &Sub {
+        width: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .track {
+    overflow-x: hidden;
+    &__content {
+      padding-bottom: 20px;
+    }
+    &__slider {
+      display: block;
+      width: 620px;
+      padding-left: 20px;
+      padding-bottom: 10px;
+    }
+    &__list {
+      display: none;
+      &Item {
+        padding: 26px;
+        flex: auto;
+        width: 271px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .track {
+    &__container {
+      padding-top: 30px;
+    }
+    &__title {
+      display: none;
+      &Sub {
+        width: 100%;
+        margin-top: 10px;
+      }
+      &_mobile {
+        display: block;
+      }
+    }
+  }
+}

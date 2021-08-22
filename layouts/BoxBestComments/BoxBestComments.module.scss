@@ -1,0 +1,64 @@
+@import "../../styles/theme";
+
+.bestComments {
+  background-color: $bgPrimary;
+  border-radius: 20px;
+  padding: 25px 25px 15px;
+  &__tabs {
+    margin-top: 12px;
+  }
+  &__noDataWrapper {
+    min-height: 120px;
+  }
+
+  &__comment {
+    margin-top: 25px;
+    &Heading {
+      line-height: 17px;
+    }
+    &Text {
+      line-height: 21px;
+      max-height: 63px;
+      overflow: hidden;
+      margin-top: 4px;
+      width: 100%;
+    }
+  }
+  &__moreLink {
+    line-height: 20px;
+    display: inline-block;
+    margin-top: 12px;
+    &Text {
+      display: none;
+      margin-right: 10px;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1199px) {
+  .bestComments {
+    &__title {
+      font-size: 30px;
+    }
+    &__moreLink {
+      &Text {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .bestComments {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 374px) {
+  .bestComments {
+    &__title {
+      font-size: 26px;
+    }
+  }
+}

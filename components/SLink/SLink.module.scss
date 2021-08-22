@@ -1,0 +1,18 @@
+@import "../../styles/theme";
+
+.link {
+  vertical-align: middle;
+  &_sizeless {
+    font-size: 0;
+  }
+  &_iconTransition {
+    & svg {
+      fill: $textOrange;
+      transition: fill linear 0.3s, transform linear 0.3s;
+    }
+    &:hover svg {
+      fill: $accentHot;
+      transform: translateX(5px);
+    }
+  }
+}

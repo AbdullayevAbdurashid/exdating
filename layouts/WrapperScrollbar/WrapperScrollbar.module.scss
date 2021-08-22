@@ -1,0 +1,29 @@
+@import "../../styles/theme";
+
+.wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: $accentFire transparent;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $accentFireOpacity;
+    border-radius: 4px;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: $textMoonlight;
+  }
+  &_type_ {
+    &thin {
+      &::-webkit-scrollbar {
+        width: 2px;
+      }
+    }
+  }
+}

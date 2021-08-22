@@ -1,0 +1,47 @@
+@import "../../styles/theme";
+
+.avatarEdit {
+  background-color: $bgPrimary;
+  box-shadow: 0px 4px 18px rgba(75, 75, 75, 0.07);
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  padding: 18px;
+  &__topControl {
+    padding: 3px 0;
+    border-bottom: 1px solid $borderDark;
+  }
+  &__changeBtn {
+    &Text {
+      line-height: 33px;
+    }
+  }
+  &__text {
+    &Rotate {
+      margin-right: 8px;
+      line-height: 33px;
+    }
+    &Zoom {
+      margin-top: 15px;
+    }
+  }
+  &__zoomRange {
+    margin-top: 6px;
+  }
+  &__rotate {
+    &Btn {
+      & + & {
+        margin-left: 5px;
+      }
+      svg {
+        fill: $accentFire;
+      }
+    }
+  }
+  &__doneBtn {
+    margin: 10px auto 0;
+    &Text {
+      line-height: 33px;
+      padding: 0 30px;
+    }
+  }
+}

@@ -1,0 +1,182 @@
+@import "../../../styles/theme";
+@import "../../../styles/mixins";
+
+.nav {
+  background-color: $bgSecondary;
+  padding: 20px 0;
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__centerBox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 638px;
+  }
+  &__burger {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 72px;
+  }
+  &__dropmenu {
+    padding: 2px 12px;
+    &Btn {
+      fill: $textMoonlight;
+      @include transition(fill);
+      &:hover {
+        fill: $accentHot;
+      }
+      &Text {
+        line-height: 33px;
+        margin-left: 10px;
+      }
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    &Text {
+      margin-left: 8px;
+      padding: 3px 0;
+      border-bottom: 1px solid $borderGrey;
+      @include transition(border-bottom-color);
+    }
+    &:hover & {
+      &Text {
+        border-bottom-color: $textGrey2;
+      }
+    }
+  }
+  &__btn {
+    &ShowOriginal {
+      &Text {
+        margin-left: 10px;
+      }
+    }
+    &Message {
+      width: 121px;
+      &Text {
+        line-height: 33px;
+      }
+      svg {
+        display: none;
+      }
+    }
+    &Subscribe {
+      width: 121px;
+      margin-left: 8px;
+      &Text {
+        line-height: 33px;
+        &Mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1199px) {
+  .nav {
+    &__centerBox {
+      position: relative;
+      left: auto;
+      transform: none;
+      width: auto;
+      flex: 1;
+    }
+    &__menu {
+      flex: 1;
+      margin-left: 20px;
+    }
+    &__burger {
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .nav {
+    padding: 15px 0;
+    &__burger {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    &__container {
+      position: static;
+      justify-content: center;
+    }
+    &__menu {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 74px;
+      background-color: $textGreyDark;
+      margin-left: 0;
+      padding: 16px 0 16px 20px;
+      z-index: 99;
+    }
+    &__btn {
+      &ShowOriginal {
+        &Text {
+        }
+      }
+    }
+    &__user {
+      &Text {
+        color: $primary;
+        border-bottom: 1px solid $borderDark;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .nav {
+    &__btn {
+      &Message {
+        width: auto;
+        padding: 0 7px;
+        &Text {
+          display: none;
+        }
+        svg {
+          fill: $accentFire;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .nav {
+    &__menu {
+      top: 62px;
+    }
+    &__btn {
+      &Subscribe {
+        width: auto;
+        padding: 0 10px;
+        &Text {
+          display: none;
+          &Mobile {
+            line-height: 33px;
+            font-size: 23px;
+            font-weight: 400;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

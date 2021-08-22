@@ -1,0 +1,305 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.feedback {
+  flex: 1;
+  &__sFeedback {
+    padding-top: 50px;
+    padding-bottom: 60px;
+    &Title {
+      display: flex;
+      justify-content: center;
+    }
+    &Slider {
+      height: 355px;
+      margin-top: 21px;
+    }
+    &Main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 38px;
+    }
+  }
+  &__content {
+    &Center {
+      width: 638px;
+    }
+    &Side {
+      flex: 1;
+      overflow: hidden;
+      &Left {
+        margin-right: 75px;
+      }
+      &Right {
+        margin-left: 75px;
+      }
+    }
+  }
+  &__personInfo {
+    background-color: $bgSecondary;
+    border-radius: 7px;
+    padding: 0 20px;
+  }
+  &__article {
+    overflow-y: hidden;
+    padding-top: 30px;
+  }
+  &__articleFooter {
+    margin-top: 30px;
+    padding: 12px 0;
+    border-top: 1px solid $borderGrey;
+  }
+  &__statItem {
+    fill: $textMoonlight;
+    & + & {
+      margin-left: 16px;
+    }
+    &View {
+      margin-right: 27px;
+    }
+    .feedback__statItemLikeIcon {
+      fill: #fff;
+      stroke: $textMoonlight;
+    }
+  }
+  &__topUsers,
+  &__bestComments {
+    background-color: $bgSecondary;
+  }
+  &__tagBox {
+    margin-top: 30px;
+    &Item {
+      & + & {
+        margin-left: 5px;
+      }
+    }
+  }
+  &__sBestFeedbacks {
+    margin-top: 80px;
+  }
+  &__btn {
+    &ReadMore {
+      margin-top: 20px;
+      fill: $accentMedium;
+      @include transition(fill);
+      &Text {
+        line-height: 28px;
+        margin-right: 5px;
+      }
+      &:hover {
+        fill: $accentHot;
+      }
+    }
+    &Share {
+      fill: $accentFire;
+      margin-left: 28px;
+      @include transition(fill);
+      &:hover {
+        fill: $accentHot;
+      }
+      &Text {
+        margin-left: 5px;
+        line-height: 30px;
+      }
+    }
+    &Like {
+      padding: 0 16px;
+      fill: #fff;
+      &Text {
+        line-height: 47px;
+        margin-left: 5px;
+      }
+    }
+    &NotDecide,
+    &Dislike {
+      padding: 0 15px;
+      height: 47px;
+      margin-left: 6px;
+      fill: $textMoonlight;
+    }
+    &Dislike {
+      padding: 0 14px;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1454px) {
+  .feedback {
+    &__content {
+      &Side {
+        &Left,
+        &Right {
+          flex: none;
+          width: 256px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .feedback {
+    &__content {
+      &Side {
+        &Left,
+        &Right {
+          display: none;
+        }
+      }
+      &Center {
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .feedback {
+    &__content {
+      &Center {
+        width: 100%;
+      }
+    }
+    &__quote {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .feedback {
+    padding-top: 67px;
+    &__sFeedback {
+      padding-top: 40px;
+      &Slider {
+        height: 300px;
+      }
+      &Title {
+        &Text {
+          font-size: 40px;
+        }
+      }
+    }
+    &__article {
+      &Footer {
+        &StatMenu {
+          position: fixed;
+          backface-visibility: hidden;
+          bottom: 0;
+          left: 0;
+          padding: 16px 20px;
+          background-color: $textGreyDark;
+          z-index: 11;
+          width: 100%;
+        }
+      }
+    }
+    &__stat {
+      &Item {
+        opacity: 0.5;
+        > span {
+          color: $primary;
+        }
+        svg {
+          fill: $primary;
+        }
+        &View {
+          opacity: 0.7;
+          > span {
+            color: $primary;
+          }
+          &Icon {
+            fill: $primary;
+          }
+        }
+        &Like {
+          opacity: 1;
+          > span {
+            color: $accentFire;
+          }
+        }
+        &Dislike {
+          svg {
+            fill: transparent;
+            stroke: $primary;
+          }
+        }
+      }
+      &Item & {
+        &ItemLike {
+          &Icon {
+            fill: $accentFire;
+            stroke: $accentFire;
+          }
+        }
+      }
+    }
+    &__btn {
+      &Share {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .feedback {
+    &__sFeedback {
+      &Slider {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .feedback {
+    &__sFeedback {
+      padding-top: 25px;
+      padding-bottom: 40px;
+      &Title {
+        &Text {
+          font-size: 35px;
+          font-weight: 600;
+        }
+      }
+      &Main {
+        margin-top: 30px;
+      }
+      &Slider {
+        height: 200px;
+      }
+    }
+    &__tagBox {
+      margin-top: 20px;
+    }
+    &__quote {
+      line-height: 25px !important;
+    }
+    &__article {
+      &Footer {
+        margin-top: 0;
+        padding: 0;
+        border: none;
+        &Actions {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .feedback {
+    &__sFeedback {
+      &Slider {
+        height: 160px;
+      }
+    }
+  }
+}

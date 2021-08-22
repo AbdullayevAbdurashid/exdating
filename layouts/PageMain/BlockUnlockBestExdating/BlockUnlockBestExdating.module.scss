@@ -1,0 +1,142 @@
+@import "../../../styles/theme";
+
+.unlockBestExdating {
+  background: $bgBlack url("/images/background-line-small.svg") top no-repeat;
+  border-radius: 20px;
+  padding: 25px;
+  &__title {
+    line-height: 33px;
+    padding-right: 48px;
+  }
+  &__list {
+    margin-top: 17px;
+    &Item {
+      position: relative;
+      line-height: 19px;
+      margin-bottom: 13px;
+      padding-left: 10px;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: $gradientPrimaryDouble;
+        left: 0;
+        top: 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+  &__btn {
+    width: 100%;
+    margin-top: 31px;
+    position: relative;
+    padding: 0 20px;
+    &Text {
+      line-height: 43px;
+      display: inline-block;
+    }
+    &IconWrapper {
+      position: absolute;
+      right: 20px;
+      & svg {
+        fill: $accentFire;
+        transition: fill linear 0.3s, transform linear 0.3s;
+      }
+    }
+    &:hover & {
+      &IconWrapper svg {
+        fill: $accentHot;
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1199px) {
+  .unlockBestExdating {
+    flex: 1;
+    background-image: url("/images/background-line.svg");
+    background-position: center -140px;
+    &__btn {
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .unlockBestExdating {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    border-radius: 0;
+    &__title {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    &__list {
+      margin-top: 25px;
+      &Item {
+        margin-bottom: 20px;
+        & > span {
+          font-size: 18px;
+        }
+      }
+    }
+    &__btn {
+      height: 54px;
+      margin-top: 40px;
+      &Text {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .unlockBestExdating {
+    background-image: url("/images/bg-line-bestofexdating-modile.svg");
+    background-position: center center;
+    background-color: $textGreyDark;
+    background-size: contain;
+    padding: 30px 20px 37px;
+    &__title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+    &__list {
+      width: 60%;
+      &Item > span {
+        font-size: 13px;
+      }
+    }
+    &__btn {
+      height: 43px;
+      margin-top: 30px;
+      background-color: $textGrey2;
+      &Text {
+        font-size: 13px;
+      }
+      &IconWrapper {
+        & svg {
+          fill: $accentHot;
+        }
+      }
+      &:hover & {
+        &IconWrapper svg {
+          fill: $accentHot;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .unlockBestExdating {
+    &__list,
+    &__btn {
+      width: 100%;
+    }
+  }
+}

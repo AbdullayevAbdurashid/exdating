@@ -1,0 +1,67 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.commentBox {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: $bgSecondary;
+  &__quoteIcon {
+    svg {
+      fill: $accentFire;
+    }
+  }
+  &__comment {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 14px;
+  }
+  &__link {
+    display: inline-block;
+    margin-top: 20px;
+    align-self: flex-start;
+    span {
+      @include transition(color);
+      margin-right: 10px;
+    }
+    svg {
+      @include transition(fill transform);
+      fill: $accentFire;
+    }
+    &Text {
+      @include transition(border-bottom-color);
+      border-bottom: 1px solid rgba(255, 102, 71, 0.15);
+      padding: 5px 0;
+    }
+    &:hover {
+      span {
+        color: $accentHot;
+      }
+      svg {
+        fill: $accentHot;
+        transform: translateX(5px);
+      }
+    }
+    &:hover & {
+      &Text {
+        border-bottom-color: $accentHotSoft;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 479px) {
+  .commentBox {
+    padding: 28px;
+    &__comment {
+      font-size: 13px;
+      line-height: 21px;
+      margin-top: 8px;
+    }
+    &__link {
+      margin-top: 12px;
+    }
+  }
+}

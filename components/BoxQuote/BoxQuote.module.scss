@@ -1,0 +1,17 @@
+@import "../../styles/theme";
+
+.quote {
+  position: relative;
+  padding-left: 46px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $accentFire;
+  line-height: 29px;
+  &__icon {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    svg {
+      fill: $accentFire;
+    }
+  }
+}

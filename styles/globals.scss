@@ -1,0 +1,330 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+#__next {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Graphik LCG", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  vertical-align: baseline;
+}
+
+textarea {
+  font-family: "Graphik LCG", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  // overflow-x: hidden;
+  padding-top: 74px;
+}
+
+input[type="text"] {
+  /* iOS fix */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@media (max-width: 479px) {
+  .content {
+    padding-top: 62px;
+  }
+}
+
+@font-face {
+  font-family: "Graphik LCG";
+  src: url("../public/fonts/GraphikLCG-Regular.eot");
+  src: local("Graphik LCG Regular"), local("GraphikLCG-Regular"),
+    url("../public/fonts/GraphikLCG-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/GraphikLCG-Regular.woff2") format("woff2"),
+    url("../public/fonts/GraphikLCG-Regular.woff") format("woff"),
+    url("../public/fonts/GraphikLCG-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik LCG";
+  src: url("../public/fonts/GraphikLCG-Thin.eot");
+  src: local("Graphik LCG Thin"), local("GraphikLCG-Thin"),
+    url("../public/fonts/GraphikLCG-Thin.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/GraphikLCG-Thin.woff2") format("woff2"),
+    url("../public/fonts/GraphikLCG-Thin.woff") format("woff"),
+    url("../public/fonts/GraphikLCG-Thin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik LCG";
+  src: url("../public/fonts/GraphikLCG-Medium.eot");
+  src: local("Graphik LCG Medium"), local("GraphikLCG-Medium"),
+    url("../public/fonts/GraphikLCG-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/GraphikLCG-Medium.woff2") format("woff2"),
+    url("../public/fonts/GraphikLCG-Medium.woff") format("woff"),
+    url("../public/fonts/GraphikLCG-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik LCG";
+  src: url("../public/fonts/GraphikLCG-Semibold.eot");
+  src: local("Graphik LCG Semibold"), local("GraphikLCG-Semibold"),
+    url("../public/fonts/GraphikLCG-Semibold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/GraphikLCG-Semibold.woff2") format("woff2"),
+    url("../public/fonts/GraphikLCG-Semibold.woff") format("woff"),
+    url("../public/fonts/GraphikLCG-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* slick-slider */
+
+li.slick-active {
+  > button {
+    background-color: #ff6647 !important;
+  }
+}
+
+/* reactjs-popup STYLES */
+.popup {
+  &-content {
+    margin: auto;
+    animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+    &[role="tooltip"] {
+      width: 200px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+    }
+    &.fullscreen-content {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+    &.fullheight-content {
+      max-height: 100%;
+      display: flex;
+    }
+  }
+  &-arrow {
+    color: rgb(255, 255, 255);
+  }
+  &-overlay {
+    background: rgba(29, 29, 29, 0.7);
+    &[data-popup="tooltip"] {
+      background: transparent;
+    }
+  }
+  /* CUSTOM STYLES */
+  &-dark-content {
+    background-color: #363636;
+    border-radius: 7px;
+  }
+  &-dark-content & {
+    &-arrow {
+      color: #363636;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .popup {
+    &-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.fullscreen-content {
+        align-items: stretch;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .popup {
+    &-content {
+      align-items: stretch;
+      padding: 0;
+    }
+    &-overlay {
+      z-index: 1002 !important;
+    }
+    &-fullscreen-mobile-content {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}

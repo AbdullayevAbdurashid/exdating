@@ -1,0 +1,61 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.chatUser {
+  position: relative;
+  padding: 10px 12px 7px 24px;
+  z-index: 1;
+  @include transition(background-color);
+  &__container {
+    display: flex;
+    position: relative;
+    padding: 10px 0;
+  }
+  &__avatar {
+    position: relative;
+    &Status {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: $accentFire;
+      border: 2px solid $bgPrimary;
+      border-radius: 50%;
+      top: 50%;
+      left: -7px;
+      transform: translateY(-50%);
+    }
+  }
+  &__content {
+    overflow: hidden;
+    position: absolute;
+    padding-left: 55px;
+    width: 100%;
+    &Name {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+  &__date {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__activeArrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background-color: $bgSecondary;
+    border-top: 1px solid $borderFeedback;
+    border-right: 1px solid $borderFeedback;
+    z-index: 1;
+  }
+  &_active {
+    background-color: $bgSecondary;
+  }
+  &:hover {
+    background-color: $bgSecondary;
+  }
+}

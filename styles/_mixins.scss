@@ -1,0 +1,25 @@
+@mixin transition($prop: all, $time: 0.3s, $easing: linear, $delay: 0s) {
+  $transition: ();
+  @for $i from 1 through length($prop) {
+    @for $j from 0 to (length($prop)) - (length($time)) {
+      $time: join($time, nth($time, -1));
+    }
+    @for $j from 0 to (length($prop)) - (length($easing)) {
+      $easing: join($easing, nth($easing, -1));
+    }
+    @for $j from 0 to (length($prop)) - (length($delay)) {
+      $delay: join($delay, nth($delay, -1));
+    }
+
+    $transition: append(
+      $transition,
+      (nth($prop, $i) nth($time, $i) nth($easing, $i) nth($delay, $i)),
+      $separator: comma
+    );
+  }
+  transition: $transition;
+}
+
+@mixin border($color: black, $width: 1px, $style: solid) {
+  border: $width $style $color;
+}

@@ -1,0 +1,113 @@
+@import "../../../styles/theme";
+@import "../../../styles/mixins";
+
+.comments {
+  background-color: $bgSecondary;
+  padding: 50px 0 44px;
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  &__content {
+    width: 637px;
+  }
+  &__message {
+    margin-top: 30px;
+    &Textarea {
+      padding-left: 10px;
+      padding-bottom: 0;
+      width: auto;
+      flex: 1;
+      &Field {
+        padding: 10px 72px 10px 20px;
+        line-height: 20px;
+      }
+      &Buttons {
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+        fill: $textMoonlight;
+        &Item {
+          font-size: 0;
+          @include transition(fill);
+          & + & {
+            margin-left: 10px;
+          }
+          &:hover {
+            fill: $accentFire;
+          }
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: $bgGreyLight1;
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+  &__comments {
+    margin-top: 66px;
+    &Item {
+      & + & {
+        margin-top: 36px;
+      }
+    }
+  }
+  &__btn {
+    &ShowMore {
+      width: 192px;
+      margin-top: 48px;
+      fill: $accentFire;
+      &Text {
+        line-height: 43px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1199px) {
+  .comments {
+    &__content {
+      width: 900px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .comments {
+    &__content {
+      width: 100%;
+    }
+    &__comments {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .comments {
+    padding-top: 40px;
+    &__message {
+      &Textarea {
+        &Field {
+          line-height: 20px !important;
+          padding: 10px 72px 10px 20px !important;
+        }
+      }
+    }
+    &__btn {
+      &ShowMore {
+        width: 100%;
+        margin-top: 30px;
+      }
+    }
+  }
+}

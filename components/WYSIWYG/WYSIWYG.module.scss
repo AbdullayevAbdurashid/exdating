@@ -1,0 +1,31 @@
+@import "../../styles/theme";
+
+.wysiwyg {
+  color: $textGreyDark;
+  font-size: 16px;
+  line-height: 29px;
+  p {
+    margin-top: 30px;
+  }
+  blockquote {
+    position: relative;
+    font-size: 13px;
+    font-style: italic;
+    color: $textGreyLight1;
+    border-bottom: 1px solid $accentFire;
+    padding-left: 46px;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 29px;
+      height: 29px;
+      background: url("/icons/icon-quote-right-colored.svg") center center
+        no-repeat;
+      background-size: contain;
+    }
+  }
+}

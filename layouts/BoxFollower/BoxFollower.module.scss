@@ -1,0 +1,114 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.follower {
+  padding: 10px 10px 12px;
+  min-width: 126px;
+  border: 1px solid transparent;
+  @include transition(border-color background-color);
+  border-radius: 7px;
+  &__name {
+    line-height: 24px;
+    margin-top: 9px;
+    @include transition(all);
+  }
+  &__btn {
+    &Subscribe {
+      width: 100%;
+      max-height: 0px;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 7px;
+      &Text {
+        line-height: 30px;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    min-height: 180px;
+    left: 0;
+    top: 0;
+    border-color: $borderDarkMoonlignt;
+    background-color: $bgGreyInput;
+  }
+  &:hover & {
+    &__name {
+      font-weight: 500;
+    }
+    &__btn {
+      &Subscribe {
+        animation: show both 0.3s;
+      }
+    }
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .follower {
+    &__btn {
+      &Subscribe {
+        opacity: 1;
+        max-height: none;
+      }
+    }
+    &:hover {
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      left: auto;
+      top: auto;
+    }
+    &:hover & {
+      &__btn {
+        &Subscribe {
+          animation: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .follower {
+    flex-direction: row;
+    padding: 6px 0;
+    &__content {
+      &Top {
+        flex-direction: row;
+      }
+    }
+    &__avatar {
+      width: 47px !important;
+      height: 47px !important;
+    }
+    &__name {
+      margin-left: 13px;
+      margin-top: 0;
+    }
+    &__btn {
+      &Subscribe {
+        width: 106px;
+        margin-top: 0;
+      }
+    }
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}

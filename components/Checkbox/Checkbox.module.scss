@@ -1,0 +1,112 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.checkbox {
+  position: relative;
+  padding-left: 24px;
+  user-select: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border: 1px solid $accentFire;
+    border-radius: 2px;
+  }
+  &__input {
+    display: none;
+  }
+  &__label {
+    user-select: none;
+    &::selection {
+      background-color: transparent;
+    }
+  }
+  &_type_ {
+    &toggle {
+      padding-left: 45px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -12px;
+        width: 34px;
+        height: 24px;
+        border: none;
+        border-radius: 60px;
+        background-color: rgba(214, 210, 204, 0.3);
+        @include transition(background-color);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        top: 50%;
+        left: 6px;
+        margin-top: -6px;
+        border-radius: 50%;
+        background-color: #d6d2cc;
+        @include transition(background-color transform);
+      }
+    }
+  }
+  &_theme_ {
+    &dark {
+      &::before {
+        border-color: $textGreyDark;
+      }
+    }
+  }
+  &_rightAlign {
+    padding-left: 0;
+    padding-right: 24px;
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+  &_rightAlign.checkbox_type_ {
+    &toggle {
+      padding-left: 0;
+      padding-right: 45px;
+      &::after {
+        left: auto;
+        right: 16px;
+      }
+    }
+  }
+  &_isChecked {
+    &.checkbox_type_toggle {
+      &::before {
+        background: none;
+        background-color: $accentFire;
+      }
+      &::after {
+        background-color: #fff;
+        transform: translateX(10px);
+      }
+    }
+    &::before {
+      background: $accentFire url("/icons/icon-check-white.svg") top 5px left
+        4px no-repeat;
+    }
+  }
+  &_isChecked {
+    &.checkbox_theme_dark {
+      &::before {
+        background-color: $textGreyDark;
+      }
+    }
+  }
+  &_error & {
+    &__label {
+      color: $accentHot;
+    }
+    display: none;
+  }
+}

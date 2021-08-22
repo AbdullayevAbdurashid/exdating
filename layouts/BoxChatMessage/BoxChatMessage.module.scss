@@ -1,0 +1,32 @@
+@import "../../styles/theme";
+
+.message {
+  max-width: 70%;
+  &__content {
+    position: relative;
+    padding: 17px 14px;
+    border-radius: 15px 15px 15px 0;
+    background-color: $bgGreyLight1;
+    &_self {
+      border-radius: 15px 15px 0 15px;
+      background-color: $bgGreyLight3;
+    }
+  }
+  &__text {
+    line-height: 21px;
+  }
+  &__date {
+    margin-top: 8px;
+  }
+  &__burger {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 479px) {
+  .message {
+    max-width: 75%;
+  }
+}

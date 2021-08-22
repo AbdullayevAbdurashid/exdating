@@ -1,0 +1,54 @@
+@import "../../styles/theme";
+
+.about {
+  flex: 1;
+  background-color: $bgSecondary;
+  padding-bottom: 50px;
+  &__container {
+    max-width: 680px;
+    padding: 60px 20px 0;
+  }
+  &__content {
+    border-top: 1px solid $borderFeedback;
+    margin-top: 22px;
+    padding-top: 38px;
+  }
+  &__paragraph {
+    & + & {
+      margin-top: 20px;
+    }
+    &:last-child {
+      margin-top: 30px;
+    }
+  }
+  &__text {
+    line-height: 29px;
+  }
+  &__list {
+    margin: 30px 0;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .about {
+    &__container {
+      padding-top: 40px;
+    }
+    &__content {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .about {
+    &__title {
+      font-size: 35px;
+    }
+    &__content {
+      margin-top: 15px;
+      padding-top: 20px;
+    }
+  }
+}

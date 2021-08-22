@@ -1,0 +1,99 @@
+@import "../../../styles/theme";
+
+.filter {
+  display: flex;
+  flex: 1;
+  &__wrapper {
+    padding-top: 65px;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__wrapper_withSave & {
+    &__content {
+      padding-bottom: 72px;
+    }
+  }
+  &__nav {
+    width: 100%;
+    position: absolute;
+    top: 12px;
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    &_reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  &__title {
+    padding-left: 16px;
+  }
+  &__filters {
+    margin-top: 20px;
+    min-height: 30px;
+  }
+  &__input {
+    margin-top: 12px;
+    &Field {
+      input {
+        border-radius: 0;
+        padding-left: 20px;
+      }
+    }
+  }
+  &__content {
+    flex: 1;
+    display: flex;
+    overflow-y: hidden;
+  }
+  &__save {
+    background-color: $textGreyDark;
+    padding: 16px 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+  }
+  &__btn {
+    &Clear,
+    &Back {
+      padding: 10px;
+      &Icon {
+        font-size: 0;
+        margin-right: 6px;
+        fill: $accentFire;
+        transform: rotate(180deg);
+        svg {
+          width: 16px;
+          height: 8px;
+        }
+      }
+    }
+    &Save {
+      flex: 1;
+      &Text {
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 479px) {
+  .filter {
+    &__title {
+      font-size: 40px;
+      line-height: 45px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .filter {
+    &__title {
+      font-size: 35px;
+      line-height: 30px;
+    }
+  }
+}

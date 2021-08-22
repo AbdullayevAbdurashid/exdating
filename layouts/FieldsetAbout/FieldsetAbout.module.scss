@@ -1,0 +1,42 @@
+.fieldset {
+  &__title {
+    line-height: 24px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  &__item {
+    flex: 1;
+    padding: 0 5px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .fieldset {
+    &__row {
+      flex-wrap: wrap;
+    }
+    &__item {
+      flex: 0 0 50%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .fieldset {
+    &__row {
+      flex-wrap: wrap;
+    }
+    &__item {
+      flex-basis: 100%;
+    }
+  }
+}

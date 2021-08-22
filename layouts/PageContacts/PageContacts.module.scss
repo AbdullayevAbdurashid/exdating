@@ -1,0 +1,49 @@
+@import "../../styles/theme";
+
+.contacts {
+  background-color: $bgSecondary;
+  flex: 1;
+  &__content {
+    padding: 90px 0;
+  }
+  &__contacts {
+    margin-top: 50px;
+  }
+  &__socials {
+    margin-top: 25px;
+    &Item {
+      & + & {
+        margin-left: 21px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 575px) {
+  .contacts {
+    &__content {
+      padding: 40px 0;
+      text-align: center;
+    }
+    &__contacts {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      &Slash {
+        display: none;
+      }
+      &Email {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .contacts {
+    &__title {
+      font-size: 35px;
+    }
+  }
+}

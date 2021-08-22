@@ -1,0 +1,81 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.button {
+  &__button {
+    &Text {
+      @include transition(color);
+      margin-right: 5px;
+    }
+    svg {
+      fill: $textGreyLight1;
+      @include transition(fill transform);
+    }
+    &_active {
+      svg {
+        fill: $accentFire;
+        transform: rotate(-180deg) translateY(1px);
+      }
+    }
+    &_disabled {
+      span {
+        color: $textGreyLight1;
+      }
+    }
+  }
+  &__dropmenu {
+    padding-bottom: 10px;
+  }
+  &__search {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid $borderFeedback;
+    &Input {
+      border: none;
+      padding-left: 28px;
+      padding-right: 12px;
+      &:focus,
+      &:active {
+        outline: none;
+      }
+      &::placeholder {
+        color: $textMoonlight;
+      }
+    }
+    svg {
+      fill: $textMoonlight;
+      position: absolute;
+      left: 12px;
+      top: 13px;
+    }
+  }
+  &__popular {
+    margin-top: 10px;
+    padding: 0 12px 10px;
+    &List {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      margin-left: -2px;
+      margin-right: -2px;
+    }
+    &Item {
+      margin: 2px;
+    }
+  }
+  &__selected {
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -2px;
+    margin-right: -2px;
+    &Item {
+      margin: 2px;
+      line-height: 19px;
+    }
+  }
+  &__options {
+    border-top: 1px solid $borderFeedback;
+    padding-top: 8px;
+  }
+}

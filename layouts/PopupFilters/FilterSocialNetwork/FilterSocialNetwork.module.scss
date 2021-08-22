@@ -1,0 +1,74 @@
+@import "../../../styles/theme";
+
+.snFilter {
+  &__fields {
+    display: flex;
+    justify-content: space-between;
+    background-color: $bgGreyInput;
+    padding: 14px 20px;
+    &SelectInput {
+      flex: 1;
+    }
+  }
+  &__input {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 10px;
+    svg {
+      fill: $textMoonlight;
+    }
+    &Field {
+      line-height: 23px;
+      font-size: 13px;
+      height: 100%;
+      flex: 1;
+      border: none;
+      margin-left: 5px;
+      background-color: transparent;
+      color: $textGreyDark;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $textMoonlight;
+      }
+    }
+  }
+  &__select {
+    &Input {
+      height: 37px;
+      input {
+        background-color: $bgPrimary;
+      }
+    }
+  }
+  &__btn {
+    &AddSocial {
+      margin-left: 10px;
+      &Text {
+        padding: 0 19px 0 15px;
+        line-height: 35px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 374px) {
+  .snFilter {
+    &__fields {
+      flex-direction: column;
+    }
+    &__btn {
+      &AddSocial {
+        margin-left: 0;
+        margin-top: 10px;
+        &Text {
+          padding: 0;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+}

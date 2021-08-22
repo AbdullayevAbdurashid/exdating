@@ -1,0 +1,86 @@
+@import "../../styles/theme";
+
+.popupAddTrack {
+  display: flex;
+  width: 793px;
+  padding: 28px 0 40px;
+  &__wrapper {
+    flex: 1;
+    padding: 20px 45px 0;
+  }
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 26px;
+    &FieldsetSocial {
+      margin-top: 28px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid $borderFeedback;
+    }
+  }
+  &__btn {
+    &Submit {
+      margin-top: 22px;
+      align-self: flex-end;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .popupAddTrack {
+    max-height: 100%;
+    overflow: hidden;
+    width: auto;
+    &__wrapper {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .popupAddTrack {
+    padding: 20px 0 30px;
+    &__wrapper {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .popupAddTrack {
+    border-radius: 0;
+    overflow-y: auto;
+    &__wrapper {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 40px;
+    }
+    &__title {
+      font-size: 35px;
+    }
+    &__form {
+      &Fieldset {
+        &Social {
+          border: none;
+          padding-bottom: 0px;
+          margin-top: 21px;
+        }
+      }
+    }
+    &__btnSubmit {
+      margin-top: 30px;
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .popupAddTrack {
+    &__title {
+      font-size: 30px;
+    }
+  }
+}

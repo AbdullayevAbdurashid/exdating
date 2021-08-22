@@ -1,0 +1,10 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.link {
+  color: $textOrange;
+  @include transition(color);
+  &:hover {
+    color: $accentHot;
+  }
+}

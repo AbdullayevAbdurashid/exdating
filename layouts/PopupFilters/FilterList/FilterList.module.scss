@@ -1,0 +1,20 @@
+@import "../../../styles/theme";
+
+.filterList {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  &__list {
+    flex: 1;
+  }
+  &__item {
+    line-height: 45px;
+    padding-left: 20px;
+    & + & {
+      border-top: 1px solid $borderFeedback;
+    }
+    &:last-child {
+      border-bottom: 1px solid $borderFeedback;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@import "../../styles/theme";
+
+.lastComments {
+  padding-top: 80px;
+  &__section {
+    padding-bottom: 34px;
+    border-bottom: 1px solid $borderGrey;
+  }
+  &__comments {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 40px -10px 0;
+    &Item {
+      flex: 0 0 31.8%;
+      margin: 10px 10px;
+    }
+  }
+  &__moreBtn {
+    margin: 32px auto 0;
+  }
+  &__bestFeedbacks {
+    margin-top: 50px;
+    padding-bottom: 70px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1454px) {
+  .lastComments {
+    &__comments {
+      margin-left: -1%;
+      margin-right: -1%;
+      &Item {
+        flex-basis: 33.33%;
+        padding: 1%;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .lastComments {
+    &__comments {
+      &Item {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .lastComments {
+    &__comments {
+      margin-left: 0;
+      margin-right: 0;
+      &Item {
+        flex-basis: 100%;
+        padding: 0;
+        & + & {
+          margin-top: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .lastComments {
+    padding-top: 40px;
+    &__comments {
+      margin-top: 25px;
+    }
+    &__title {
+      text-align: left;
+      font-size: 35px;
+    }
+    &__moreBtn {
+      width: 100%;
+      margin: 30px 0 0;
+    }
+    &__bestFeedbacks {
+      margin-top: 30px;
+      padding-bottom: 40px;
+    }
+  }
+}

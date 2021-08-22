@@ -1,0 +1,59 @@
+@import "../../styles/theme";
+
+.tabs {
+  position: relative;
+  > input {
+    display: none;
+  }
+  &__links {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $borderGrey;
+  }
+  &__linkItem {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+  &__link {
+    padding: 10px 0;
+    &Text {
+      transition: all linear 0.3s;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__activeLine {
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background-color: $accentFire;
+    transition: left $timingCubicSecondary 0.3s;
+  }
+  &__content {
+    &Tab {
+      display: none;
+      animation: {
+        name: showTabContent;
+        direction: normal;
+        duration: 0.3s;
+        timing-function: ease-in-out;
+        iteration-count: 1;
+      }
+    }
+  }
+}
+
+@keyframes showTabContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

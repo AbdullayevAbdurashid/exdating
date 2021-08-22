@@ -1,0 +1,318 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.feedbackBox {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid $borderFeedback;
+  background-color: $bgPrimary;
+  &__header {
+    position: relative;
+    &Img {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: $borderFeedback;
+      img {
+        position: absolute;
+        min-width: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &_default {
+        background: #27211e url("/images/background-feedbackbox-default.svg");
+        background: url("/images/background-feedbackbox-default.svg") no-repeat
+            bottom right 30px,
+          linear-gradient(45deg, #27211e, #5a3a2d);
+        background-size: contain;
+      }
+    }
+    &Avatar {
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      transform: translateY(50%);
+      z-index: 1;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $bgPrimary;
+      border-radius: 50%;
+    }
+  }
+  &__body {
+    flex: 1;
+    margin-top: 40px;
+    padding: 0 30px;
+    &Wrapper {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    &Author {
+      line-height: 33px;
+    }
+    &Description {
+      line-height: 24px;
+      margin-top: 10px;
+      min-width: 100%;
+    }
+    &Avatar {
+      display: none;
+    }
+  }
+  &__footer {
+    padding: 0 30px 18px;
+    &Wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid $borderGrey;
+      padding-top: 18px;
+    }
+    &Info {
+      position: relative;
+      display: flex;
+      margin-left: -15px;
+      &Item {
+        position: relative;
+        margin-left: 15px;
+        padding: 5px 0 5px 25px;
+      }
+      &LikeIcon,
+      &NotdecideIcon,
+      &DislikeIcon,
+      &CommentIcon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-right: 0;
+      }
+      &LikeIcon {
+        margin-top: -8px;
+        fill: $accentFire;
+      }
+      &NotdecideIcon {
+        margin-top: -8px;
+      }
+      &DislikeIcon {
+        margin-top: -8px;
+      }
+      &CommentIcon {
+        margin-top: -6px;
+      }
+    }
+    &OpenLink {
+      line-height: 36px;
+    }
+    &EditBtn {
+      &Text {
+        line-height: 30px;
+        padding: 0 22px;
+      }
+    }
+  }
+  /* COMPACT MODE */
+  &_compactMode {
+    background-color: $bgSecondary;
+    border: none;
+  }
+  &_compactMode & {
+    &__header {
+      display: none;
+    }
+    &__body {
+      padding: 0 25px;
+      margin-top: 25px;
+      height: 152px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      flex: auto;
+      &Wrapper {
+        margin-bottom: 0;
+      }
+      &Author {
+        line-height: 24px;
+        padding-left: 45px;
+        min-height: 44px;
+      }
+      &Description {
+        line-height: 21px;
+        max-height: 84px;
+        overflow: hidden;
+        margin-top: 15px;
+      }
+      &Avatar {
+        display: block;
+        position: absolute;
+        top: 6px;
+        left: 0;
+      }
+    }
+    &__footer {
+      padding-bottom: 10px;
+      &Wrapper {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1454px) {
+  .feedbackBox {
+    &__header {
+      &Img {
+        height: 160px;
+      }
+    }
+    &__body {
+      padding: 0 25px;
+      margin-top: 30px;
+      &Author {
+        font-size: 23px;
+        &Text {
+          font-size: inherit;
+        }
+        &Feedback {
+          font-size: inherit;
+        }
+      }
+      &Title {
+        font-size: inherit;
+      }
+      &Description {
+        margin-top: 10px;
+      }
+    }
+    &__footer {
+      padding-bottom: 15px;
+      &Wrapper {
+        padding-top: 15px;
+      }
+    }
+    &.feedbackBox_compactMode & {
+      &__body {
+        &Author {
+          font-size: 16px;
+          &Text {
+            font-size: 16px;
+          }
+          &Feedback {
+            font-size: 16px;
+          }
+        }
+        &Title {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .feedbackBox {
+    &__body {
+      &Author {
+        font-size: 22px;
+        &Text {
+          font-size: inherit;
+        }
+        &Feedback {
+          font-size: inherit;
+        }
+      }
+      &Title {
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .feedbackBox {
+    &__body {
+      &Author {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .feedbackBox {
+    &__header {
+      &Img {
+        height: 180px;
+      }
+    }
+    &__body {
+      &Author {
+        font-size: 25px;
+        line-height: 30px;
+      }
+      &Description {
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .feedbackBox {
+    &__header {
+      &Img {
+        height: 130px;
+      }
+      &Avatar {
+        display: none;
+      }
+    }
+    &__body {
+      padding: 0 10px 0 25px;
+      &Author {
+        font-size: 16px;
+        padding-left: 55px;
+        line-height: 24px;
+        &Text,
+        &Feedback {
+          font-size: 16px !important;
+        }
+      }
+      &Title {
+        display: block;
+        font-size: 16px !important;
+      }
+      &Avatar {
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 0;
+      }
+    }
+    &__footer {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .feedbackBox {
+    &__body {
+      margin-top: 20px;
+      padding: 0 15px;
+    }
+    &__footer {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+}

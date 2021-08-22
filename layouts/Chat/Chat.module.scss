@@ -1,0 +1,211 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 10px 17px 20px;
+    border-bottom: 1px solid $borderFeedback;
+    &User {
+      display: flex;
+      align-items: center;
+      &Text {
+        font-size: 20px;
+        line-height: 24px;
+        margin-left: 7px;
+      }
+    }
+    &BackBtn {
+      display: none;
+      transform: rotate(180deg);
+      fill: $accentFire;
+      padding: 0 20px;
+      height: 34px;
+      svg {
+        width: 24px;
+        height: 12px;
+      }
+    }
+  }
+  &__messages {
+    flex: 1;
+    display: flex;
+    padding: 0 5px 0 20px;
+    &Empty {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &Wrapper {
+      position: relative;
+      flex: 1;
+    }
+    &Inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 20px 15px 20px 0px;
+    }
+    &Box {
+      display: flex;
+      flex-direction: column;
+      & + & {
+        margin-bottom: 40px;
+      }
+    }
+    &Date {
+      align-self: center;
+      border-radius: 120px;
+      border: 1px solid $borderFeedback;
+      padding: 0 15px;
+      &Text {
+        line-height: 24px;
+      }
+    }
+    &Dumb {
+      height: 20px;
+    }
+    &List {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    &Item {
+      display: flex;
+      & + & {
+        margin-top: 6px;
+      }
+      &_self {
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__actions {
+    display: flex;
+    border-top: 1px solid $borderFeedback;
+    padding: 10px 10px 10px 15px;
+    align-items: center;
+    &File {
+      font-size: 0;
+    }
+    &Textarea {
+      flex: 1;
+      padding: 1px 0;
+      max-height: 22px;
+      resize: none;
+      font-size: 13px;
+      line-height: 20px;
+      margin-left: 7px;
+      border: none;
+      scrollbar-width: thin;
+      scrollbar-color: $accentFire transparent;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $accentFireOpacity;
+        border-radius: 4px;
+      }
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $textMoonlight;
+      }
+    }
+    &SendMessage {
+      fill: $accentFire;
+      &:hover {
+        fill: $accentFireRich;
+      }
+    }
+    &File,
+    &Smiles,
+    &SendMessage {
+      padding: 5px;
+      @include transition(fill);
+    }
+    &File,
+    &Smiles {
+      fill: $textMoonlight;
+      &:hover {
+        fill: $accentFire;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .chat {
+    &__header {
+      padding-right: 0;
+    }
+    &__actions {
+      padding-top: 16px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .chat {
+    &__header {
+      background-color: $bgSecondary;
+      padding-left: 0px;
+      &BackBtn {
+        display: block;
+      }
+    }
+    &__messages {
+      &Box {
+        & + & {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .chat {
+    &__header {
+      padding-top: 9px;
+      padding-bottom: 7px;
+      padding-left: 10px;
+      &UserText {
+        font-size: 16px;
+      }
+      &BackBtn {
+        padding-left: 10px;
+        padding-right: 10px;
+        svg {
+          width: 16px;
+          height: 9px;
+        }
+      }
+    }
+    &__messages {
+      &Box {
+        & + & {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.support {
+  padding: 25px 0;
+  min-width: 483px;
+  &__wrapper {
+    padding: 20px 45px;
+  }
+  &__form {
+    margin-top: 25px;
+    &Row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & + & {
+        margin-top: 15px;
+      }
+      & + &:last-child {
+        margin-top: 10px;
+      }
+    }
+    &Field {
+      flex: 1;
+      & + & {
+        margin-left: 12px;
+      }
+    }
+  }
+  &__btn {
+    &Submit {
+      width: 176px;
+      &Text {
+        line-height: 44px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .support {
+    display: flex;
+    max-height: 100%;
+    &__wrapper {
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .support {
+    min-width: 440px;
+    padding-top: 0;
+    padding-bottom: 0;
+    &__wrapper {
+      padding: 45px 35px;
+    }
+    &__form {
+      &Row {
+        flex-direction: column;
+        align-items: stretch;
+        &:last-child {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+      &Field {
+        & + & {
+          margin-left: 0;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .support {
+    min-width: auto;
+    flex: 1;
+    &__wrapper {
+      padding-top: 55px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &__title {
+      font-size: 35px;
+    }
+    &__form {
+      &Row {
+        & + & {
+          margin-top: 12px;
+        }
+        & + &:last-child {
+          margin-top: 19px;
+        }
+      }
+      &Checkbox {
+        &Text {
+          font-size: 13px;
+        }
+      }
+    }
+    &__btn {
+      &Submit {
+        width: 155px;
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .support {
+    &__form {
+      &Row {
+        &:last-child {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        & + &:last-child {
+          margin-top: 10px;
+        }
+      }
+    }
+    &__btn {
+      &Submit {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+}

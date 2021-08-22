@@ -1,0 +1,345 @@
+@import "../../styles/theme";
+
+.main {
+  position: relative;
+  margin-top: -74px;
+  /* WELCOME section*/
+  &Welcome {
+    display: flex;
+    height: 100vh;
+    padding-top: 74px;
+    background: url("/images/main-pic.png") center top 74px no-repeat;
+    background-size: cover;
+    &__container {
+      flex: 1;
+      padding: 0 205px;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+    &__preheader {
+      opacity: 0.8;
+    }
+    &__title {
+      margin-top: 50px;
+    }
+    &__addFeedback {
+      display: flex;
+      align-items: center;
+      line-height: 65px;
+      margin-top: 50px;
+      &Text {
+        margin-right: 26px;
+      }
+      & > svg {
+        fill: $accentFire;
+        transition: transform linear 0.3s, fill linear 0.3s;
+      }
+      &:hover > svg {
+        transform: translateX(5px);
+        fill: $accentHot;
+      }
+    }
+  }
+  /* BEST FEEDBACKS section*/
+  &BFeedbacks {
+    margin-top: 60px;
+    &__addBtn {
+      width: 240px;
+      margin: 42px auto 0;
+      &Text {
+        line-height: 45px;
+      }
+    }
+  }
+  /* ALL FEEDBACKS section*/
+  &AFeedbacks {
+    margin-top: 52px;
+    padding-top: 68px;
+    background-color: $bgSecondary;
+    &__content {
+      margin-top: 23px;
+      padding-bottom: 23px;
+    }
+    &__feedbacks {
+      flex: 1;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &Wrapper {
+        margin: 0 -10px;
+        flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+      }
+      &NoFeedbacks {
+        flex: 1;
+      }
+    }
+    &__feedback {
+      flex: 0 0 48%;
+      margin: 1%;
+    }
+    &__sideContent {
+      width: 256px;
+      margin: 10px 0 0 40px;
+      &Box {
+        margin-top: 15px;
+      }
+    }
+    &__moreBtn {
+      margin: 50px auto 60px;
+    }
+  }
+  /* UPGRADE section */
+  &Upgrade {
+    background: #000 url("/images/background-line.svg") center no-repeat;
+    padding: 65px 0 25px;
+    &__box {
+      display: flex;
+      flex-flow: column nowrap;
+      &Btn {
+        &Box {
+          align-items: flex-end;
+          padding-top: 140px;
+        }
+        &Text {
+          padding: 20px 0;
+          margin-right: 10px;
+        }
+        & svg {
+          fill: $accentFire;
+          transition: transform linear 0.3s, fill linear 0.3s;
+        }
+        &:hover svg {
+          fill: $accentHot;
+          transform: translateX(5px);
+        }
+      }
+    }
+    &__paragraph {
+      width: 576px;
+      margin-top: 25px;
+      line-height: 24px;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 992px),
+  only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 992px),
+  only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 992px),
+  only screen and (min-device-pixel-ratio: 2) and (min-width: 992px),
+  only screen and (min-resolution: 192dpi) and (min-width: 992px),
+  only screen and (min-resolution: 2dppx) and (min-width: 992px) {
+  .main {
+    &Welcome {
+      background: url("/images/main-pic@2x.png") center top 74px no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+@media (max-width: 1454px) {
+  .main {
+    &AFeedbacks {
+      &__sideContent {
+        margin-left: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .main {
+    &Welcome {
+      &__container {
+        padding: 0 15%;
+      }
+    }
+    &AFeedbacks {
+      margin-top: 50px;
+      padding-top: 50px;
+      &__moreBtn {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+      &__content {
+        flex-flow: column nowrap;
+        align-items: stretch;
+      }
+      &__sideContent {
+        width: auto;
+        flex: 1;
+        margin-left: 0;
+        margin-bottom: 30px;
+        margin-top: 0;
+        &Box {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .main {
+    &Welcome {
+      &__container {
+        padding: 0 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    &Welcome {
+      &__container {
+        padding: 0 30px;
+      }
+      &__preheader {
+        font-size: 15px;
+      }
+    }
+    &AFeedbacks {
+      &__feedback {
+        flex: 0 0 100%;
+        margin: 20px 0 0 0;
+      }
+      &__feedbacksWrapper {
+        margin: 0;
+      }
+      &__sideContent {
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        &Box {
+          margin-top: 0;
+          padding-top: 30px;
+          padding-bottom: 20px;
+          & + .mainAFeedbacks__sideContentBox {
+            border-top: 1px solid $borderGrey;
+          }
+        }
+      }
+    }
+    &Upgrade {
+      padding-top: 50px;
+      padding-bottom: 15px;
+      &__paragraph {
+        width: auto;
+      }
+      &__boxBtn {
+        &Box {
+          align-items: flex-start;
+          padding-top: 30px;
+        }
+        &Text {
+          font-size: 25px;
+        }
+      }
+      &__btn {
+        padding: 20px 0;
+      }
+      &__title {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 685px) {
+  .main {
+    &Welcome {
+      &__preheader {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .main {
+    margin-top: -62px;
+    &Welcome {
+      padding-top: 64px;
+      background-position: top 62px center;
+      &__container {
+        align-items: flex-start;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      &__preheader {
+        font-size: 13px;
+      }
+      &__title {
+        text-align: left;
+      }
+      &__addFeedback {
+        &Text {
+          font-size: 20px;
+        }
+      }
+    }
+    &AFeedbacks {
+      margin-top: 35px;
+      padding-top: 35px;
+      &__content {
+        margin-top: 5px;
+      }
+      &__sideContent {
+        margin-bottom: 15px;
+      }
+      &__moreBtn {
+        width: 100%;
+        margin: 20px 0 30px;
+      }
+    }
+    &Upgrade {
+      padding-top: 40px;
+      padding-bottom: 50px;
+      background-color: $textGreyDark;
+      background-image: url("/images/bg-line-upgrade2-mobile.svg");
+      // background-size: cover;
+      background-position: left 10px;
+      &__paragraph {
+        font-size: 13px;
+        line-height: 21px;
+      }
+      &__boxBtn {
+        &Box {
+          padding-top: 15px;
+        }
+        &Text {
+          font-size: 20px;
+        }
+      }
+      &__title {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .main {
+    &AFeedbacks {
+      &__sideContentBox {
+        overflow-x: hidden;
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .main {
+    &AFeedbacks {
+      &__sideContent {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+  }
+}

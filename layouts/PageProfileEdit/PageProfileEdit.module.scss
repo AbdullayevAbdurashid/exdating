@@ -1,0 +1,512 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.profileEdit {
+  flex: 1;
+  background-color: $bgSecondary;
+  &__container {
+    margin-top: 110px;
+  }
+  &__title {
+    padding-left: 260px;
+    padding-right: 240px;
+  }
+  &__nav {
+    position: sticky;
+    top: 108px;
+    width: 261px;
+    margin-top: 38px;
+    background-color: #fff;
+    border: 1px solid #f5f5f5;
+    border-radius: 20px 0px 0px 20px;
+    padding: 8px 0;
+    z-index: 1;
+    &List {
+      &Item {
+        padding-left: 20px;
+        svg {
+          vertical-align: middle;
+          fill: $textMoonlight;
+          @include transition(fill);
+        }
+        &Text {
+          line-height: 35px;
+          margin-left: 11px;
+        }
+        & + & {
+          margin-top: 11px;
+        }
+        &:hover {
+          cursor: pointer;
+          svg {
+            fill: $textPrimary;
+          }
+        }
+        &:hover & {
+          &Text {
+            color: $textPrimary;
+          }
+        }
+        &_active & {
+          &Text {
+            color: $textOrange;
+            font-weight: 500;
+          }
+        }
+        &_active {
+          &:hover {
+            svg {
+              fill: $accentFire;
+            }
+            .profileEdit__navListItemText {
+              color: $textOrange;
+            }
+          }
+          svg {
+            fill: $accentFire;
+          }
+        }
+      }
+    }
+    &Mobile {
+      display: none;
+      &Input {
+        input {
+          border-color: $borderFeedback;
+          background-color: $bgSecondary;
+        }
+      }
+    }
+  }
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 803px;
+    margin-bottom: 100px;
+    input {
+      font-weight: 500;
+      &::placeholder {
+        font-weight: normal;
+      }
+    }
+    &Box {
+      padding-bottom: 34px;
+      border: 1px solid $borderFeedback;
+      border-top-left-radius: 0;
+      margin-top: 38px;
+      margin-left: -1px;
+    }
+    &Fieldset {
+      padding: 34px 50px 0;
+      & + & {
+        border-top: 1px solid $borderFeedback;
+      }
+      &Title {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+    &Personal {
+      margin-top: 20px;
+      margin-bottom: 46px;
+      &Avatar {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 220px;
+        padding: 30px 0 20px;
+        border: 1px dashed $borderAccentOpacity;
+        border-radius: 7px;
+        &Box {
+          width: 155px;
+          height: 155px;
+        }
+        &Btn {
+          margin-top: 25px;
+          height: 24px;
+          > svg {
+            fill: $accentFire;
+            @include transition(fill);
+            margin-right: 8px;
+          }
+          &:hover {
+            > svg {
+              fill: $accentHot;
+            }
+          }
+        }
+      }
+      &Block {
+        margin-left: 30px;
+        margin-right: -10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex: 1;
+      }
+      &Item {
+        flex: 0 0 45%;
+        margin: 0 10px 20px;
+        &Full {
+          flex: 1;
+          min-height: 69px;
+          margin: 0 10px;
+        }
+      }
+      &Textarea {
+        font-weight: 500;
+      }
+    }
+    &Social {
+      > span {
+        font-size: 20px;
+      }
+    }
+    &Public {
+      margin-top: 30px;
+      &Email {
+        margin-top: 10px;
+        margin-bottom: 36px;
+        width: 212px;
+      }
+    }
+    &ResetPassword {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 15px 0 30px;
+      padding-bottom: 30px;
+      &Item {
+        flex: 1;
+        & + & {
+          margin-left: 10px;
+        }
+      }
+      &Btn {
+        margin-left: 16px;
+        &Text {
+          line-height: 49px;
+          padding: 0 18px;
+        }
+      }
+    }
+    &ForgotPassword {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    &Notifications {
+      margin-top: 20px;
+      &Item {
+        & + & {
+          margin-top: 13px;
+        }
+      }
+      &Checkbox {
+        width: 210px;
+        display: inline-block;
+        padding-right: 0;
+      }
+      &Text {
+        line-height: 24px;
+      }
+    }
+    &Submit {
+      &Block {
+        margin-top: 27px;
+        align-self: flex-end;
+      }
+      &Btn {
+        &Text {
+          padding: 0 90px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+  &__deleteBtn {
+    &Text {
+      line-height: 24px;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1454px) {
+  .profileEdit {
+    &__title {
+      padding: 0;
+      padding-left: 261px;
+      width: 1060px;
+      margin: 0 auto;
+    }
+    &__content {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .profileEdit {
+    &__container {
+      margin-top: 60px;
+    }
+    &__title {
+      width: 800px;
+      padding-left: 0;
+    }
+    &__content {
+      align-items: center;
+      flex-direction: column;
+    }
+    &__nav {
+      width: 803px;
+      margin-top: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 13px rgba(47, 47, 47, 0.1);
+      z-index: 10;
+      &List {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        &Item {
+          padding-left: 0;
+          & + & {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &__form {
+      margin-bottom: 60px;
+      &Box {
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  .profileEdit {
+    &__title,
+    &__nav,
+    &__form {
+      width: 100%;
+    }
+    &__form {
+      margin-bottom: 40px;
+      &Personal {
+        flex-direction: column;
+        &Avatar {
+          width: 100%;
+        }
+        &Block {
+          margin-left: -10px;
+          margin-top: 30px;
+        }
+      }
+      &PublicEmail {
+        width: 100%;
+      }
+      &Submit {
+        &Block {
+          margin-top: 30px;
+          width: 50%;
+          align-self: center;
+        }
+        &Btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .profileEdit {
+    &__content {
+      align-items: stretch;
+    }
+    &__nav {
+      display: none;
+      &Mobile {
+        display: block;
+        margin-top: 30px;
+      }
+    }
+    &__form {
+      &ResetPassword {
+        flex-direction: column;
+        align-items: stretch;
+        &Item {
+          & + & {
+            margin-top: 15px;
+            margin-left: 0;
+          }
+        }
+        &Buttons {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 30px;
+        }
+        &Btn {
+          margin-left: 0;
+          width: 50%;
+        }
+      }
+      &ForgotPassword {
+        position: relative;
+      }
+      &SubmitBtn {
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .profileEdit {
+    &__title {
+      padding: 0 20px;
+    }
+    &__container {
+      padding: 0;
+    }
+    &__nav {
+      &Mobile {
+        padding: 0 20px;
+      }
+    }
+    &__form {
+      margin-bottom: 80px;
+      &Box {
+        border-radius: 0;
+        border: none;
+      }
+      &Fieldset {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      &Submit {
+        &Block {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background-color: $bgPrimary;
+          padding: 16px 20px;
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+        }
+        &Btn {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .profileEdit {
+    &__container {
+      margin-top: 40px;
+    }
+    &__nav {
+      &Mobile {
+        margin-top: 20px;
+        &Input {
+          height: 43px;
+        }
+      }
+    }
+    &__title {
+      &Text {
+        font-size: 35px;
+      }
+    }
+    &__deleteBtn {
+      display: none;
+    }
+    &__form {
+      &Box {
+        margin-top: 20px;
+      }
+      &Personal {
+        margin-bottom: 17px;
+        &Avatar {
+          flex-direction: row;
+          justify-content: center;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          &Btn {
+            margin-left: 15px;
+            margin-top: 0;
+          }
+          &Box {
+            width: 73px;
+            height: 73px;
+          }
+        }
+        &Block {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        &Item {
+          flex-basis: 100%;
+          margin-left: 0;
+          margin-right: 0;
+          &Full {
+            margin: 0;
+          }
+        }
+        &Name {
+          flex-basis: 50%;
+          padding-right: 5px;
+          & + & {
+            padding-right: 0;
+            padding-left: 5px;
+          }
+        }
+      }
+      &ResetPassword {
+        padding-bottom: 0;
+        &Item {
+          & + & {
+            margin-top: 6px;
+          }
+        }
+        &Buttons {
+          margin-top: 17px;
+        }
+        &Btn {
+          width: 62%;
+          margin-left: 0;
+          &Text {
+            line-height: 39px;
+          }
+        }
+      }
+      &Notifications {
+        &Checkbox {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .profileEdit {
+    &__form {
+      &ResetPassword {
+        &Btn {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

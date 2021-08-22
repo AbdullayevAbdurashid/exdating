@@ -1,0 +1,49 @@
+.confirmation {
+  &__wrapper {
+    width: 356px;
+    padding: 52px 58px;
+  }
+  &__label {
+    width: 171px;
+    line-height: 35px;
+  }
+  &__box {
+    text-align: center;
+    & + & {
+      margin-top: 20px;
+    }
+  }
+  &__btn {
+    &Continue {
+      flex: 1;
+      margin-left: 5px;
+      &Text {
+        line-height: 44px;
+      }
+    }
+    &Cancel {
+      flex: 1;
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 479px) {
+  .confirmation {
+    width: 100%;
+    display: flex;
+    &__wrapper {
+      padding: 30px;
+      align-self: center;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .confirmation {
+    &__wrapper {
+      padding: 20px;
+    }
+  }
+}

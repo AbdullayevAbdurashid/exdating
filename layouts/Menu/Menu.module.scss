@@ -1,0 +1,152 @@
+@import "../../styles/theme";
+
+.menu {
+  position: fixed;
+  backface-visibility: hidden;
+  display: flex;
+  width: 100%;
+  top: -106px;
+  background-color: $bgGreyLight1;
+  z-index: 11;
+  transition: top $timingCubicPrimary 0.3s, max-height $timingCubicPrimary 0.3s;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
+  padding-top: 74px;
+  &__container {
+    position: relative;
+    flex: 1;
+  }
+  &__content {
+    flex: 1;
+    transition: transform $timingCubicPrimary 0.3s;
+  }
+  &__header {
+    display: none;
+    padding: 10px 20px;
+    &BackBtn {
+      & svg {
+        transform: rotate(180deg);
+        fill: $accentFire;
+        margin-right: 5px;
+      }
+    }
+    &SignupBtn {
+      margin-right: 10px;
+      &Text {
+        line-height: 36px;
+        padding: 0 18px;
+        z-index: 1;
+      }
+    }
+  }
+  &__navWrapper {
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  &__nav {
+    display: flex;
+    justify-content: center;
+    &Item {
+      &Btn {
+        line-height: inherit;
+      }
+      &Login {
+        display: none;
+      }
+      & + .menu__navItem {
+        margin-left: 25px;
+      }
+    }
+  }
+  &__language {
+    display: none;
+    &Text {
+      color: $textMoonlight;
+      line-height: 33px;
+    }
+    &Btn {
+      &Text {
+        margin-right: 5px;
+        line-height: 24px;
+        border-bottom: dotted 1px $accentFire;
+      }
+    }
+  }
+  &__burger {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  &__lang {
+    &Wrapper {
+      display: none;
+      flex: 1;
+    }
+  }
+  &_activeSide & {
+    &__content {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .menu {
+    height: 100%;
+    overflow: hidden;
+    max-height: 0;
+    z-index: 1001;
+    padding-top: 0;
+    top: -100%;
+    background: $bgPrimary url("../../public/images/menu-bg.svg") bottom 93px
+      center no-repeat;
+    background-size: contain;
+    &__content {
+      width: 200%;
+      overflow-y: hidden;
+    }
+    &__header {
+      display: flex;
+    }
+    &__navWrapper {
+      padding: 0;
+      padding-bottom: 13px;
+    }
+    &__nav {
+      margin-left: 20px;
+      flex-flow: column nowrap;
+      flex: 1;
+      justify-content: flex-start;
+
+      &Lang {
+        overflow-y: auto;
+      }
+      &Item {
+        line-height: 45px;
+        & + & {
+          margin-left: 0;
+        }
+        &Login {
+          display: block;
+        }
+        &Text {
+          font-size: 20px;
+        }
+      }
+    }
+    &__language {
+      display: flex;
+      margin-left: 20px;
+      &Text {
+        margin-right: 5px;
+      }
+    }
+    &__lang {
+      &Wrapper {
+        display: flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,286 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.addFeedback {
+  flex: 1;
+  background-color: $bgSecondary;
+  &__container {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  &__form {
+    width: 860px;
+    margin: 0 auto;
+  }
+  &__switch {
+    &Help {
+      position: relative;
+      line-height: 18px;
+      text-align: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 5px;
+      @include border($accentFireOpacity);
+      border-radius: 50%;
+      font-size: 11px;
+      color: $textOrange;
+      @include transition(border-color color background-color);
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: $accentFire;
+        border-color: $accentFire;
+      }
+    }
+  }
+  &__fields {
+    margin-top: 40px;
+    padding: 50px 76px;
+  }
+  &__dropzone {
+    margin-top: 40px;
+  }
+  &__about {
+    position: relative;
+    margin-top: 18px;
+    &Box {
+      padding: 20px 0 50px;
+    }
+    &Person {
+      margin-top: 20px;
+      padding-bottom: 38px;
+    }
+    &Line {
+      height: 1px;
+      background-color: $borderGrey;
+      margin-left: -76px;
+      margin-right: -76px;
+      margin-bottom: 50px;
+    }
+    &Fieldset {
+      & + & {
+        margin-top: 28px;
+      }
+    }
+  }
+  &__textarea {
+    &Story {
+      margin-top: 20px;
+    }
+  }
+  &__field {
+    &Tags {
+      margin-top: 30px;
+    }
+  }
+  &__input {
+    &Tags {
+      margin-top: 5px;
+    }
+  }
+  &__popular {
+    margin-top: 15px;
+    &Text {
+      margin-top: 5px;
+      line-height: 24px;
+    }
+    &TagList {
+      margin-left: 10px;
+    }
+    &Tag {
+      margin: 2px;
+    }
+  }
+  &__btn {
+    &Block {
+      margin-top: 30px;
+    }
+    &Publicate {
+      width: 215px;
+      margin-left: 10px;
+    }
+    &Draft {
+      &Text {
+        padding: 0 75px;
+        line-height: 49px;
+      }
+    }
+    &AddPesonal {
+      &Text {
+        line-height: 24px;
+      }
+    }
+    &Delete {
+      &Text {
+        line-height: 49px;
+        padding: 0 34px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .addFeedback {
+    &__form {
+      width: 100%;
+    }
+    &__container {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 40px;
+    }
+    &__fields {
+      padding: 30px 30px;
+      &Title {
+        input {
+          font-size: 30px;
+          line-height: 44px;
+        }
+        label {
+          top: 24px;
+        }
+      }
+    }
+    &__about {
+      &Box {
+        padding-bottom: 40px;
+      }
+      &Line {
+        margin-left: -30px;
+        margin-right: -30px;
+        margin-bottom: 30px;
+      }
+    }
+    &__btn {
+      &Terms {
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .addFeedback {
+    &__fields {
+      padding: 20px 18px;
+    }
+    &__about {
+      &Box {
+        padding-bottom: 30px;
+      }
+      &Line {
+        margin-left: -18px;
+        margin-right: -18px;
+        margin-bottom: 20px;
+      }
+    }
+    &__fieldTags {
+      margin-top: 20px;
+    }
+    &__btn {
+      &Draft {
+        &Text {
+          line-height: 40px;
+          padding: 0 22px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .addFeedback {
+    &__container {
+      padding-bottom: 50px;
+    }
+    &__title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__switch {
+      &Box {
+        margin-top: 20px;
+      }
+    }
+    &__btn {
+      &Submits {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        background-color: $bgGrey;
+        z-index: 1;
+        padding: 16px 20px;
+        display: flex;
+      }
+      &Draft {
+        flex: 1;
+      }
+      &Publicate {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .addFeedback {
+    &__container {
+      padding-bottom: 25px;
+    }
+    &__title {
+      &Text {
+        font-size: 40px;
+      }
+    }
+    &__fields {
+      margin-top: 28px;
+      &Title {
+        label {
+          font-size: 13px;
+          top: 19px;
+        }
+        input {
+          font-size: 18px;
+          line-height: 24px;
+        }
+      }
+    }
+    &__dropzone {
+      margin-top: 20px;
+    }
+    &__field {
+      &Tags {
+        margin-top: 10px;
+        &Label {
+          font-size: 13px;
+        }
+      }
+    }
+    // &__textareaStory {
+    //   label {
+    //     font-size: 13px;
+    //   }
+    //   textarea {
+    //     font-size: 13px;
+    //   }
+    // }
+    &__input {
+      &Tags {
+        height: 41px;
+      }
+    }
+    &__btn {
+      &Block {
+        margin-top: 15px;
+      }
+      &Draft {
+        width: 112px;
+        flex: none;
+      }
+    }
+  }
+}

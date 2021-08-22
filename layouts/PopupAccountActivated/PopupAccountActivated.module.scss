@@ -1,0 +1,114 @@
+@import "../../styles/theme";
+
+.popup {
+  padding: 45px 90px 55px 97px;
+  width: 593px;
+  &__title {
+    position: relative;
+    &Icon {
+      position: absolute;
+      width: 33px;
+      height: 24px;
+      fill: $textGreen;
+      left: -52px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &Text {
+      line-height: 55px;
+    }
+  }
+  &__description {
+    margin-top: 18px;
+    line-height: 25px;
+    padding-right: 50px;
+  }
+  &__btn {
+    width: 176px;
+    line-height: 44px;
+    margin-top: 30px;
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .popup {
+    &__title {
+      &Text {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .popup {
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 80px;
+  }
+}
+
+@media (max-width: 575px) {
+  .popup {
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &Icon {
+        position: relative;
+        transform: none;
+        margin-top: 0;
+        left: auto;
+        top: auto;
+        width: 40px;
+        height: 30px;
+      }
+      &Text {
+        font-size: 40px;
+        line-height: 44px;
+        margin-top: 26px;
+      }
+    }
+    &__description {
+      padding-right: 0;
+      text-align: center;
+    }
+    &__btn {
+      width: 185px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .popup {
+    justify-content: center;
+    padding: 0 44px;
+    &__title {
+      &Text {
+        font-size: 35px;
+        line-height: 39px;
+      }
+    }
+    &__description {
+      font-size: 13px;
+      line-height: 24px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .popup {
+    &__title {
+      &Text {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+  }
+}

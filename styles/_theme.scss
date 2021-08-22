@@ -1,0 +1,98 @@
+$primary: #e5e5e5;
+$accentFire: #ff6647;
+$accentFireOpacity: #ff6647a8;
+$accentFireRich: #eb4c2c;
+$accentHot: #ff1953;
+$accentHotSoft: #fd9797;
+$accentMedium: #f76060;
+$accentHotRed: #f02840;
+
+// Gradients
+$gradientPrimaryDouble: linear-gradient(90deg, $accentHot 11%, $accentFire 31%);
+$gradientPrimaryDoubleInverted: linear-gradient(
+  90deg,
+  $accentFire 11%,
+  $accentHot 31%
+);
+$gradientPrimaryTriple: linear-gradient(
+  90deg,
+  $accentHot 8%,
+  $accentFire 25%,
+  $accentFire 40%,
+  $accentHot 60%,
+  $accentFireRich 75%
+);
+$gradientPrimaryInvertedTriple: linear-gradient(
+  90deg,
+  $accentFire 8%,
+  $accentHot 25%,
+  $accentHot 40%,
+  $accentFire 60%,
+  $accentFireRich 75%
+);
+$gradientPrimary: linear-gradient(90deg, $accentHot 21.65%, $accentFire 62.95%);
+$gradientPrimaryInverted: linear-gradient(
+  90deg,
+  $accentFire 21.65%,
+  $accentHot 62.95%
+);
+$gradientInstagram: linear-gradient(
+  45deg,
+  #f4be0d 0%,
+  #ed5b2e 50%,
+  #c3337b 75%,
+  #9c27b0 100%
+);
+$gradientWhiteTransparent: linear-gradient(to bottom, transparent 0%, #fff 95%);
+
+// Text colors
+$textPrimary: #181818; // used
+$textGreyDark: #363636; // used as #393939
+$textGrey2: #4a4a4a;
+$textGreyMedium: #737373;
+$textGreyLight1: #9e9e9e; // #8b8b8b #A9A9A9 #ADADAD #969696
+$textOrange: #ff6647; // used
+$textGreen: #47ba61; // used
+$textMoonlight: #b4ada3; // used #F8F5EF
+
+// Background colors
+$bgPrimary: #fff; // used
+$bgSecondary: #fcfbf9; // used
+$bgIconDefault: #e5e5e5; // used for default social icon bg #F8F8F8 #eaeaea
+$bgBlack: #000; // used
+$bgGreyInput: #f9f7f4; // used for inputs
+$bgGreyLight1: #f5f3ef;
+$bgGreyLight4: #f8f8f8; //
+$bgRedSorf: #fdf1f1;
+$bgSand: #f8f5ef;
+$bgFooterAlternative: #fbfbfb;
+
+$bgGrey: #363636; // NOT used yet????
+$bgGreyLight3: #faf9f8; // NOT used #F6F6F6
+
+// Border colors
+$borderFeedback: #f5f5f5; // #ebe7e7
+$borderGrey: #eaeaea; // #e2e2e2 #ebebeb
+$borderGreyMedium: #e2e2e2;
+$borderDarkMoonlignt: #e9e6e3; // #efece6
+$borderDark: rgba(134, 134, 134, 0.3);
+$borderAccent: #ff6647;
+$borderAccentOpacity: rgba(255, 102, 71, 0.3);
+
+// Social colors
+$youtube: #ec3a3b;
+$facebook: #274f94;
+$twitter: #509ffe;
+$instagram: $gradientInstagram;
+$apple: #1a1a1a;
+$google: #cb5849;
+$vk: #56769d;
+
+// Timing functions
+$timingCubicPrimary: cubic-bezier(0.77, 0.2, 0.05, 1);
+$timingCubicSecondary: cubic-bezier(0.38, 0.8, 0.32, 1.07);
+
+// rgba(126, 126, 126, 0.9)
+// rgba(24, 24, 24, 0.5)
+// rgba(24, 24, 24, 0.75)
+// rgba(196, 196, 196, 0.2);

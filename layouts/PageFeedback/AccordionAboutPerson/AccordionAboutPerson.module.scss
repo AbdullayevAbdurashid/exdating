@@ -1,0 +1,65 @@
+@import "../../../styles/theme";
+@import "../../../styles/mixins";
+
+.apAccordion {
+  &__content {
+    padding-bottom: 20px;
+  }
+  &__button {
+    width: 100%;
+    justify-content: space-between;
+    line-height: 50px;
+    svg {
+      fill: $accentFire;
+      @include transition(fill);
+    }
+    &:hover {
+      svg {
+        fill: $accentHot;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    &Item {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+      &Label,
+      &Text {
+        flex: 1;
+        line-height: 24px;
+      }
+      & + & {
+        margin-left: 40px;
+      }
+    }
+  }
+  &__social {
+    padding-top: 10px;
+    &List {
+      display: flex;
+      margin-top: 10px;
+      &Item {
+        & + & {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 575px) {
+  .apAccordion {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      &Item {
+        & + & {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

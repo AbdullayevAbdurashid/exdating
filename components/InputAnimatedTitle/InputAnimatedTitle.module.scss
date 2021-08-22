@@ -1,0 +1,47 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.input {
+  position: relative;
+  padding-top: 13px;
+  &__field {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $borderGrey;
+    font-size: 25px;
+    line-height: 68px;
+    font-size: 44px;
+    color: $textGreyDark;
+    @include transition(border-bottom-color);
+    &:focus {
+      outline: none;
+      border-bottom-color: $textPrimary;
+    }
+  }
+  &__label {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    font-size: 25px;
+    color: $textMoonlight;
+    font-weight: 500;
+    @include transition(font-size top);
+    &:hover {
+      cursor: text;
+    }
+    &_active {
+      font-size: 13px;
+      top: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .input {
+    &__label {
+      &_active {
+        font-size: 11px !important;
+      }
+    }
+  }
+}

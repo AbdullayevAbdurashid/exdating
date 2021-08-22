@@ -1,0 +1,41 @@
+@import "../../styles/mixins";
+
+.dropdown {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+  &__container {
+    position: absolute;
+    cursor: default;
+    z-index: 100;
+    &_animated {
+      visibility: hidden;
+      opacity: 0;
+      bottom: -10px;
+      transform: translateY(100%);
+      @include transition(bottom opacity visibility);
+    }
+    &_active {
+      visibility: visible;
+      opacity: 1;
+      bottom: 0px;
+    }
+  }
+  &_align_right & {
+    &__container {
+      right: 0;
+    }
+  }
+  &_align_left & {
+    &__container {
+      left: 0;
+    }
+  }
+}

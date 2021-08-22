@@ -1,0 +1,30 @@
+.tabsSimple {
+  width: 100%;
+  &__navItem {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__contentItem {
+    display: none;
+    animation: {
+      name: showTabContent;
+      direction: normal;
+      duration: 0.3s;
+      timing-function: ease-in-out;
+      iteration-count: 1;
+    }
+    &_active {
+      display: block;
+    }
+  }
+}
+
+@keyframes showTabContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

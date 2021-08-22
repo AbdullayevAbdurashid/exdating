@@ -1,0 +1,40 @@
+@import "../../styles/theme";
+
+.itemStat {
+  position: relative;
+  &__icon {
+    font-size: 0;
+  }
+  &_position & {
+    &__icon {
+      position: relative;
+      padding-left: 20px;
+    }
+    &__text {
+      margin-left: 0;
+    }
+  }
+  &__text {
+    margin-left: 5px;
+  }
+  &_iconType_ {
+    &like svg,
+    &dislike svg,
+    &notdecide svg,
+    &comments svg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-right: 0;
+      margin-top: -8px;
+    }
+    &dislike svg {
+      fill: $textMoonlight;
+      margin-top: -9px;
+      left: -4px;
+    }
+    &notdecide svg {
+      margin-top: -9px;
+    }
+  }
+}

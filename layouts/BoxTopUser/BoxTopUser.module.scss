@@ -1,0 +1,168 @@
+@import "../../styles/theme";
+
+.topUser {
+  position: relative;
+  display: flex;
+  &_compact {
+    padding-left: 25px;
+  }
+  &_compact & {
+    &__stand {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      > svg {
+        fill: $accentFire;
+      }
+    }
+    &__content {
+      flex: 1;
+      overflow: hidden;
+      &Written {
+        flex: 1;
+        overflow: hidden;
+        padding-left: 10px;
+      }
+    }
+    &__feedbacks {
+      margin-top: 5px;
+    }
+  }
+  &_normal {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background-color: $bgSecondary;
+    padding: 40px 20px 20px;
+  }
+  &_normal & {
+    &__stand {
+      position: absolute;
+      top: -14px;
+      width: 28px;
+      height: 28px;
+      font-size: 0;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $textGreyDark;
+      & svg {
+        fill: #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: -7px;
+        left: 50%;
+        margin-left: -6px;
+      }
+      &_colored {
+        background: $gradientPrimaryInverted;
+      }
+    }
+    &__content {
+      flex-flow: column nowrap;
+      align-items: center;
+      &Written {
+        margin-top: 15px;
+      }
+    }
+
+    &__location {
+      margin-top: 6px;
+      text-align: center;
+      &Text {
+        margin-left: 5px;
+      }
+    }
+    &__feedbacks {
+      line-height: 24px;
+      margin-top: 10px;
+    }
+    &__subscribeBtn {
+      margin-top: 20px;
+      width: 100%;
+      &Text {
+        z-index: 1;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 575px) {
+  .topUser {
+    &_normal {
+      padding: 0 0 8px 20px;
+      align-items: stretch;
+      border-radius: 0;
+      background-color: transparent;
+    }
+    &__usernameText {
+      text-align: left;
+    }
+    &_normal & {
+      &__stand {
+        top: 30px;
+        left: 0;
+        z-index: 1;
+        border: 3px solid $bgPrimary;
+        line-height: 24px;
+        svg {
+          width: 9px;
+          height: 9px;
+          margin-top: -5px;
+          margin-left: -5px;
+        }
+        > span {
+          font-size: 11px;
+        }
+      }
+      &__content {
+        align-items: flex-start;
+        flex: 1;
+        flex-direction: row;
+      }
+      &__contentWritten {
+        flex: 1;
+        padding-left: 15px;
+        align-items: flex-start;
+        margin-top: 0;
+      }
+      &__location {
+        margin-top: 10px;
+        text-align: left;
+        &Text {
+          display: inline;
+        }
+      }
+      &__feedbacks {
+        margin-top: 18px;
+      }
+      &__subscribeBtn {
+        position: absolute;
+        width: 116px;
+        bottom: 0;
+        right: 0;
+        > span {
+          line-height: 37px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .topUser {
+    &_normal & {
+      &__feedbacks {
+        margin-top: 8px;
+      }
+      &__subscribeBtn {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}

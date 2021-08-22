@@ -1,0 +1,18 @@
+@import "../../styles/theme";
+
+.inputCode {
+  padding: 11px 0;
+  border-bottom: 1px solid $borderGrey;
+  &__input {
+    width: 39px;
+    text-align: center;
+    border: none;
+    line-height: 24px;
+    font-size: 20px;
+    color: $textGreyDark;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}

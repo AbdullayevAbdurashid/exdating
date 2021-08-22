@@ -1,0 +1,44 @@
+@import "../../styles/theme";
+
+.authWrapper {
+  display: flex;
+  flex: 1;
+  background-color: $bgSecondary;
+  &__container {
+    flex: 1;
+    display: flex;
+  }
+  &__mainContent {
+    flex: 1;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  &__boxBtn {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    &Back {
+      padding: -15px 0;
+      & > svg {
+        transform: rotate(180deg);
+        fill: $accentFire;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 575px) {
+  .authWrapper {
+    background-color: $bgPrimary;
+    &__mainContent {
+      align-items: stretch;
+    }
+    &__boxBtn {
+      display: none;
+    }
+  }
+}

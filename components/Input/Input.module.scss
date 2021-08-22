@@ -1,0 +1,61 @@
+@import "../../styles/theme";
+
+.input {
+  position: relative;
+  height: 49px;
+  &__field {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background-color: $bgGreyInput;
+    padding: 0 0 0 16px;
+    color: $textGreyDark;
+    font-size: 13px;
+    &::placeholder {
+      color: $textMoonlight;
+      font-size: 13px;
+    }
+    &:focus {
+      border-color: $borderGreyMedium;
+      outline: 0;
+    }
+    &_isError {
+      background-color: $bgRedSorf;
+      color: $accentHot;
+      &::placeholder {
+        color: $accentHotSoft;
+      }
+      &:focus {
+        border-color: $accentHot;
+      }
+    }
+  }
+  &__error {
+    font-size: 13px;
+    color: $accentHot;
+    position: absolute;
+    bottom: -14px;
+    left: 16px;
+  }
+  &_type_isSearchType {
+    padding-bottom: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -1px;
+      background-color: $textMoonlight;
+    }
+  }
+  &_type_isSearchType & {
+    &__field {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+    }
+  }
+}

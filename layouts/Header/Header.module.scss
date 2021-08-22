@@ -1,0 +1,375 @@
+@import "../../styles/theme";
+@import "../../styles/mixins";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $bgPrimary;
+  padding: 15px 0;
+  z-index: 998;
+  transition: box-shadow linear 0.3s;
+  &_sticky {
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+  }
+  &_theme_ {
+    &secondary {
+      background-color: $bgSecondary;
+    }
+  }
+  &__navWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__nav {
+    display: flex;
+    &Item {
+      position: relative;
+      transition: opacity linear 0.3s;
+      &:hover {
+        opacity: 0.6;
+      }
+      &Text {
+        padding: 10px 0;
+      }
+      &_active::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $accentFire;
+        bottom: -20px;
+      }
+      & + .header__navItem {
+        margin-left: 25px;
+      }
+    }
+  }
+  &__userControls {
+    margin-left: 60px;
+    &Item {
+      & + & {
+        margin-left: 8px;
+      }
+    }
+  }
+  &__signBtn {
+    padding: 0 15px;
+    &Text {
+      position: relative;
+      z-index: 1;
+      margin-right: 9px;
+      line-height: 40px;
+      & + svg {
+        z-index: 1;
+        fill: #fff;
+      }
+    }
+  }
+  &__signupBtn {
+    margin-left: 10px;
+    &Text {
+      & + svg {
+        fill: $accentHot;
+      }
+    }
+  }
+  &__lang {
+    &Btn {
+      margin-left: 8px;
+      padding: 10px 8px;
+      margin-right: -8px;
+    }
+    &Item {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &Text {
+      transition: color linear 0.3s;
+      margin-right: 3px;
+      & + svg {
+        fill: $textPrimary;
+        transition: transform linear 0.3s, fill linear 0.3s;
+      }
+      &_hovered + svg {
+        fill: $accentFire;
+      }
+      &_active + svg {
+        fill: $accentFire;
+        transform: rotate(-180deg);
+      }
+    }
+    &Dropdown {
+      padding: 5px 34px 5px 12px;
+      max-height: 200px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: $accentFire transparent;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $accentFireOpacity;
+        border-radius: 4px;
+      }
+      &Text {
+        text-align-last: left;
+        width: 100%;
+        line-height: 33px;
+        transition: color linear 0.3s;
+        &:hover {
+          color: $accentFire;
+        }
+      }
+    }
+  }
+  &__burger {
+    margin-left: 20px;
+  }
+  &__btn {
+    &Rounded {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: $borderFeedback;
+      fill: #c5c5c5;
+      @include transition(fill background-color);
+      & + & {
+        margin-left: 8px;
+      }
+      &:hover {
+        fill: $textOrange;
+      }
+      &_active {
+        background-color: $textOrange;
+        fill: $bgPrimary;
+        &:hover {
+          background-color: $accentHot;
+          fill: $bgPrimary;
+        }
+      }
+      &Counter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+        font-weight: 500;
+        line-height: 14px;
+        background-color: $textOrange;
+        color: $bgPrimary;
+        border-radius: 50%;
+        border: 2px solid $bgPrimary;
+      }
+      &Icon {
+        &_mobile {
+          display: none;
+        }
+        &Notifications {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .header {
+    &__userControls {
+      margin-left: 30px;
+    }
+    &__nav {
+      &Item {
+        & + .header__navItem {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .header {
+    &__userControls {
+      margin-left: 0;
+    }
+    &__content {
+      justify-content: space-between;
+    }
+    &__nav {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    &__btn {
+      &Rounded {
+        &:hover {
+          fill: #c5c5c5;
+        }
+        &:active {
+          fill: $textOrange;
+        }
+        &_active {
+          background-color: $textOrange;
+          fill: $bgPrimary;
+          &:hover {
+            background-color: $textOrange;
+            fill: $bgPrimary;
+          }
+          &:active {
+            background-color: $accentHot;
+            fill: $bgPrimary;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    &__langBtn {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .header {
+    &__signinBtn {
+      display: none;
+    }
+    &_hide_575 {
+      display: none;
+      ~ div {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .header {
+    padding: 12px 0;
+    &__logo {
+      width: 146px;
+      height: 38px;
+    }
+    &__user {
+      &Controls {
+        &Item {
+          position: static;
+          & + & {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    &__notifications {
+      width: 100%;
+      height: 100vh;
+      background-color: $bgSecondary;
+      box-shadow: none;
+      &Dropdown {
+        bottom: 14px;
+      }
+      &::before {
+        display: none;
+      }
+    }
+    &__btn {
+      &Rounded {
+        width: 38px;
+        height: 38px;
+        background-color: transparent;
+        fill: $textGreyDark;
+        &Icon {
+          display: none;
+          &_mobile {
+            display: block;
+          }
+          &Profile {
+            height: 22px;
+            width: 18px;
+            fill: transparent;
+            stroke: $textGreyDark;
+            @include transition(stroke);
+            &:active {
+              stroke: $accentFire;
+            }
+          }
+          &Notifications {
+            display: block;
+            fill: transparent;
+            width: 20px;
+            height: 23px;
+            stroke: $accentFire;
+            &:active {
+              stroke: $accentHot;
+            }
+          }
+        }
+        &Counter {
+          top: 8px;
+          right: 6px;
+        }
+        &:hover {
+          fill: $textGreyDark;
+        }
+        &:active {
+          fill: $accentFire;
+        }
+        &_active {
+          background-color: transparent;
+          fill: $bgPrimary;
+          &:hover {
+            background-color: transparent;
+          }
+          &:active {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+    &__signBtn {
+      padding: 0 18px;
+      &Text {
+        margin-right: 0;
+        line-height: 36px;
+      }
+      & svg {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .header {
+    &__burger {
+      margin-left: 10px;
+    }
+    &__btn {
+      &Rounded {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    &__signBtn {
+      padding: 0 10px;
+      &Text {
+        font-size: 12px;
+      }
+    }
+  }
+}
