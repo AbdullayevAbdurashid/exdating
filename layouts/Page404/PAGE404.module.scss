@@ -1,0 +1,65 @@
+@import "../../styles/theme";
+
+.forbidden {
+  flex: 1;
+  background-color: $bgSecondary;
+  padding-bottom: 50px;
+  &__container {
+    max-width: 680px;
+    padding: 60px 20px 0;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 22px;
+    padding-top: 38px;
+    align-items: center;
+    margin: 100px;
+  }
+
+  &__image{
+    width: 111px;
+    height: 111px;
+    margin-bottom: 20px;
+  }
+  &__formSubmitBtn{
+    width: 176px;
+    height: 44px;
+  }
+  &__404text{
+ font-size: 100px;
+ line-height: 110px;
+ padding:10px;
+  }
+  &__404textsmall{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+       margin-bottom: 48px;
+     }
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 991px) {
+  .about {
+    &__container {
+      padding-top: 40px;
+    }
+    &__content {
+      padding-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .about {
+    &__title {
+      font-size: 35px;
+    }
+    &__content {
+      margin-top: 15px;
+      padding-top: 20px;
+    }
+  }
+}

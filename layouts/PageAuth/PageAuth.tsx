@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect,useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
@@ -51,7 +51,8 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
   const { useNotification } = libHooks;
   const { setErrorNotification, setSucceedNotification } = useNotification();
 
-  // FORMS
+  const [message, setMessage] = useState("")
+   // FORMS
   const {
     register,
     handleSubmit,
@@ -103,7 +104,7 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
           });
           router.push("/profile");
         } else {
-          console.log("Login error response: ", response);
+          setMessage(" Password or login is incorrect please check and try again ");
           if (response.message) {
             setErrorNotification(response.message);
           }
@@ -185,7 +186,13 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
                 className={styles.auth__formField}
               />
             )}
-
+        <Text
+                  color="hotred"
+                  size="sm"
+                  className={styles.auth__errorMessage}
+                >
+                  {message}
+                </Text>
             <div className={styles.auth__formBottomBlock}>
               <Checkbox
                 name={isSignup ? "termsconditions" : "remember_me"}

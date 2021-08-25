@@ -16,6 +16,8 @@ import PageFeedback from "./PageFeedback/PageFeedback";
 import PageGlobalSearch from "./PageGlobalSearch/PageGlobalSearch";
 import PageChat from "./PageChat";
 import PageAbout from "./PageAbout";
+import Page404 from "./Page404/index";
+
 import PageCodeConfirmation from "./PageCodeConfirmation/PageCodeConfirmation";
 
 // SECTIONS, FIELDSETS, BOXES
@@ -57,6 +59,7 @@ import ButtonDropdownSimpleBurger from "./ButtonDropdownSimpleBurger";
 import LinkFirebold from "./LinkFirebold";
 
 export {
+  Page404,
   LinkFirebold,
   Header,
   Footer,

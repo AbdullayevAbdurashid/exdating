@@ -1,6 +1,6 @@
 import type { AppProps /* , AppContext */ } from "next/app";
 import ReactNotification from "react-notifications-component";
-
+import {AuthContextProvider} from './../context/authContext'
 // Import COMPONENTS
 import { Flexbox } from "components";
 
@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         <ReactNotification />
       </Provider>
+
     </Flexbox>
   );
 }

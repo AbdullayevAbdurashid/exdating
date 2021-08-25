@@ -15,9 +15,9 @@ export const signup = async (data: SignupRequest) => {
   return response;
 };
 
-export const verify = async (enterField: string, code: string) => {
+export const verify = async (enterField: string, has: string) => {
   const response = await get(
-    `/verification?enterField=${enterField}&has=${code}`
+    `/verification?enterField=${enterField}&has=${has}`
   );
 
   return response;

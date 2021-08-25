@@ -61,7 +61,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
           color="greyDark"
           className={styles.resetPassword__description}
         >
-          {isEmailConfirmed ? "Create a new password" : "Confirm your email"}
+          {isEmailConfirmed ? "Create a new password" : ""}
         </Text>
 
         <form
@@ -76,7 +76,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
             <Input
               register={register}
               type="email"
-              placeholder="Email"
+              placeholder="Phone number or  email"
               name="email"
               error={errors.email}
               className={styles.resetPassword__formEmail}
@@ -99,7 +99,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
                 type="password"
                 placeholder="Repeat"
                 name="repeatpassword"
-                error={errors.repeatpassword}
+                  error={errors.repeatpassword}
                 className={styles.resetPassword__formPassword}
               />
             </>
@@ -111,7 +111,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
             className={styles.resetPassword__submitBtn}
           >
             <Text color="white" size="sm">
-              {isEmailConfirmed ? "Change" : "Confirm"}
+              {isEmailConfirmed ? "Change" : "Send"}
             </Text>
           </Button>
         </form>
