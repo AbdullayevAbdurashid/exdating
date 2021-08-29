@@ -8,7 +8,7 @@ import { getTopUsers, getSelf } from "api/user";
 // Import LAYOUTS and CONTAINERS
 import { WrapperPage, PageMain } from "layouts";
 
-// Import MOCK DATA
+// Import MOCK DATA 
 import commonContentData from "utils/mocks";
 
 export default function MainPage(

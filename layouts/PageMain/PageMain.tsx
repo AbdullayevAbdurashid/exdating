@@ -1,7 +1,12 @@
 import dynamic from "next/dynamic";
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
+import { useRouter } from 'next/router';
 
 // Import CONTROLLERS
 import usePageMainController from "./PageMain.controller";
+//translation
+
 
 // Import COMPONENTS
 import {
@@ -49,10 +54,15 @@ type Props = {
   };
 };
 
+
 const PageMain: React.FC<Props> = ({ className, data }) => {
   const classNames = [styles.main, className].join(" ");
   const { bestFeedbacks, allFeedbacks, commentsBest } = data;
 
+  //Language
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : ru;
   // CONTROLLERS
   const {
     actions: { handleRouteAddFeedback, handleLoadMoreAllFeedbacks },
@@ -87,8 +97,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
             color="white"
             center
           >
-            Behind every Feedback is an experience that matter
-          </Text>
+            {t.bannerPage}          </Text>
 
           <SLink
             className={styles.mainWelcome__addFeedback}

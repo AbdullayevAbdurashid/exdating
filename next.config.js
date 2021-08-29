@@ -1,7 +1,12 @@
 // const optimizedImages = require("next-optimized-images");
 // const withPlugins = require("next-compose-plugins");
 
+
 const nextConfig = {
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'en',
+  },
   env: {
     REST_NEXT_API: "http://localhost:3000",
     REST_API: "https://artruso.ru/api",
@@ -19,7 +24,10 @@ const nextConfig = {
 
     return newConfig;
   },
+
+
 };
+
 
 module.exports = nextConfig;
 

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
 // Import COMPONENTS
 import {
   Container,
@@ -81,6 +82,19 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
     changePopupState(state);
   };
 
+  // Translatio
+
+  const { locale } = router;
+  const t = locale === 'en' ? en : ru;
+
+
+  const changeLanguage = (e: any) => {
+    const locale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale });
+
+  };
+
+
   return (
     <div style={{ paddingRight: scrollPadding }} className={classNames}>
       <Container>
@@ -104,11 +118,10 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                 {content?.linkList.map((element) => (
                   <li
                     key={element.id}
-                    className={`${styles.header__navItem} ${
-                      router.pathname === element.linkTo
-                        ? styles.header__navItem_active
-                        : ""
-                    }`}
+                    className={`${styles.header__navItem} ${router.pathname === element.linkTo
+                      ? styles.header__navItem_active
+                      : ""
+                      }`}
                   >
                     <SLink href={element.linkTo}>
                       <Text
@@ -161,11 +174,10 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                     onStatusChange={handleToggleNotifications}
                     renderSelect={() => (
                       <Button
-                        className={`${styles.header__btnRounded}${
-                          notificationList.length > 0
-                            ? ` ${styles.header__btnRounded_active}`
-                            : ""
-                        }`}
+                        className={`${styles.header__btnRounded}${notificationList.length > 0
+                          ? ` ${styles.header__btnRounded_active}`
+                          : ""
+                          }`}
                       >
                         <BellIcon
                           viewBox="0 0 10 13"
@@ -245,7 +257,13 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
 
                     <ArrowRightIcon width={16} height={8} />
                   </Button>
-
+                  <select
+                    onChange={changeLanguage}
+                    defaultValue={locale}
+                  >
+                    <option className="text-black" value="ru">RU</option>
+                    <option className="text-black" value="en">EN</option>
+                  </select>
                   <Dropdown
                     initialValue={content ? content.languagesList[0] : null}
                     className={styles.header__langBtn}
@@ -257,9 +275,8 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                           uppercase
                           size="sm"
                           fontWeight="semibold"
-                          className={`${styles.header__langText} ${
-                            isHovered ? styles.header__langText_hovered : ""
-                          } ${isActive ? styles.header__langText_active : ""}`}
+                          className={`${styles.header__langText} ${isHovered ? styles.header__langText_hovered : ""
+                            } ${isActive ? styles.header__langText_active : ""}`}
                         >
                           {selectedValue ? selectedValue.shortсut : ""}
                         </Text>
@@ -276,7 +293,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                               className={styles.header__langItem}
                               key={lang.id}
                               onClick={() => onSelect(lang)}
-                              onKeyPress={() => {}}
+                              onKeyPress={() => { }}
                               role="option"
                               aria-selected={false}
                             >

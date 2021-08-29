@@ -122,7 +122,7 @@ const Dropdown = <Data extends { id: string }>({
       onClick={handleClick}
       onMouseEnter={handleHoverOn}
       onMouseLeave={handleHoverOut}
-      onKeyDown={() => {}}
+      onKeyDown={() => { }}
       role="button"
       tabIndex={0}
       style={style}
@@ -130,16 +130,14 @@ const Dropdown = <Data extends { id: string }>({
       {renderSelect({ selectedValue, isActive, isHovered, closeDropdown })}
 
       <div
-        onKeyDown={() => {}}
+        onKeyDown={() => { }}
         role="button"
         tabIndex={0}
         onClick={handleClickDropdown}
         ref={dropdownElementRef}
-        className={`${styles.dropdown__container} ${
-          animated ? styles.dropdown__container_animated : ""
-        } ${animated && isActive ? styles.dropdown__container_active : ""} ${
-          dropdownClassName || ""
-        }`}
+        className={`${styles.dropdown__container} ${animated ? styles.dropdown__container_animated : ""
+          } ${animated && isActive ? styles.dropdown__container_active : ""} ${dropdownClassName || ""
+          }`}
       >
         {children({ isActive, onSelect, selectedValue, closeDropdown })}
       </div>

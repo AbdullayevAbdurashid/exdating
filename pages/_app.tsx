@@ -1,17 +1,21 @@
 import type { AppProps /* , AppContext */ } from "next/app";
 import ReactNotification from "react-notifications-component";
-import {AuthContextProvider} from './../context/authContext'
 // Import COMPONENTS
 import { Flexbox } from "components";
+
+//iMPORT MULTILANGUAGE
+//import  '../hooks/translation/i18n.jsx'  
+
 
 // Import PROVIDERS
 import { Provider } from "context";
 
-// Import STYLES
+// Import SYLES
 import "../styles/globals.scss";
 import "../styles/libs/slick.scss";
 import "../styles/libs/slick-theme.scss";
 import "react-notifications-component/dist/scss/notification.scss";
+import React from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
