@@ -102,6 +102,7 @@ const Dropdown = <Data extends { id: string }>({
 
   const onSelect = (value: Data) => {
     setSelectedValue(value);
+
   };
 
   const handleHoverOn = () => {
