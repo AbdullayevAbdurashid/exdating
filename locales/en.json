@@ -1,4 +1,38 @@
 {
-    "main": "Welcome to react using react-i18next",
-    "bannerPage": "Behind every Feedback is an experience that matter"
+    "mainPage": {
+        "banner1": "Read Feedbacks. Write Feedbacks.",
+        "banner2": "Behind every Feedback is an experience that matter",
+        "addFeedback": "Add Feedback",
+        "addButton": " + Add your feedback",
+        "all": " All feedbacks",
+        "found": "No feedbacks found",
+        "started": "Get started",
+        "upgrade": "Let's upgrade the world",
+        "about": "Exdating is a feedback platform open to everyone Share your Exdating is a feedback platform open to everyone. Share your  experiences to help others make better choices, and help companies  up their game  "
+    },
+    "header": {
+        "login": "Login",
+        "signUp": "Sign Up"
+    },
+    "feebacks": {
+        "best": "Best Feedbacks",
+        "noFound": " No feedbacks found",
+        "def": "feedback",
+        "edit": "edit"
+    },
+    "top": {
+        "intro": "Top user of Exdating",
+        "more": "More"
+    },
+    "comments": {
+        "best": "Best comments",
+        "no": "No comments",
+        "more": "Read more"
+    },
+    "unlock": {
+        "intro": "Unlock the best of Exdating",
+        "point1": "Save your favorite travel ideas and see them on a map",
+        "point2": "Get price alerts and deals so you can travel your way",
+        "point3": "Ask questions and get answers from travelers like you"
+    }
 }

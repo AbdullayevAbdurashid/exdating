@@ -2,6 +2,7 @@ import { TabsContentProp } from "components/Tabs";
 import { TABS } from "api/comments";
 
 const TAB_DATA: TabsContentProp<TABS> = {
+
   name: "bestComments",
   data: [
     { id: TABS.LAST, name: "Last" },

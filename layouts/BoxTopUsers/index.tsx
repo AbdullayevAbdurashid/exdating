@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Slider, { Settings } from "react-slick";
+import { useRouter } from "next/router"
 
+//Language
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
 // Import CONTEXTS
 import { context } from "context";
 
@@ -122,6 +126,10 @@ const BoxTopUsers: React.FC<Props> = ({
       </SLink>
     ));
   }, [data]);
+  //Language
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : ru;
 
   return (
     <div className={classNames}>
@@ -131,7 +139,7 @@ const BoxTopUsers: React.FC<Props> = ({
         fontWeight="bold"
         color="primary"
       >
-        Top user of Exdating
+        {t.top.intro}
       </Text>
 
       <ul className={styles.topUsers__userList}>{renderUserList}</ul>
@@ -157,7 +165,7 @@ const BoxTopUsers: React.FC<Props> = ({
               size="sm"
               hoverTransition
             >
-              More
+              {t.top.more}
             </Text>
 
             <ArrowMediumRightIcon width={43} height={8} />

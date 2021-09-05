@@ -1,5 +1,8 @@
 import { useMemo } from "react";
-import { useRouter } from "next/router";
+//Import Language 
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
+import { useRouter } from 'next/router';
 
 // import COMPONENTS
 import { SLink, ButtonIcon, Text, BoxAvatar, Button } from "components";
@@ -42,7 +45,6 @@ const BoxFeedback: React.FC<Props> = ({
   ].join(" ");
   const { user_id } = content;
 
-  const router = useRouter();
 
   // CONTEXTS
   const { useUserContext } = context;
@@ -65,16 +67,20 @@ const BoxFeedback: React.FC<Props> = ({
     return `/profile/${user_id}`;
   }, [user_id]);
 
+
+  const router = useRouter();
+  const { locale } = router;
+  //Translation function
+  const t = locale === 'en' ? en : ru;
   return (
     <article className={classNames}>
       <div className={styles.feedbackBox__header}>
         <div
-          className={`${styles.feedbackBox__headerImg} ${
-            content.image == null ||
+          className={`${styles.feedbackBox__headerImg} ${content.image == null ||
             (Array.isArray(content.image) && content.image.length === 0)
-              ? styles.feedbackBox__headerImg_default
-              : ""
-          }`}
+            ? styles.feedbackBox__headerImg_default
+            : ""
+            }`}
         >
           {content.image != null && (
             <img
@@ -146,7 +152,7 @@ const BoxFeedback: React.FC<Props> = ({
               color="greyLight"
             >
               {" "}
-              feedback{" "}
+              {t.feebacks.def}{" "}
             </Text>
 
             <SLink href={`/feedback/${content.id}`}>
@@ -214,7 +220,7 @@ const BoxFeedback: React.FC<Props> = ({
                   color="orange"
                   size="sm"
                 >
-                  Edit
+                  {t.feebacks.edit}
                 </Text>
               </Button>
             </>

@@ -16,7 +16,11 @@ import { TAB_DATA } from "./BoxBestComments.templates";
 // Import MEDIA
 import ArrowMediumRightIcon from "public/icons/icon-arrow-medium-right.svg";
 
-// Import TYPES
+
+//Language
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
+import { useRouter } from 'next/router';
 
 // Import STYLES
 import styles from "./BoxBestComments.module.scss";
@@ -43,7 +47,10 @@ const BoxBestComments: React.FC<Props> = ({
   const handleChangeTab = (value: { id: TABS; name: React.ReactNode }) => {
     changeTab(value.id);
   };
-
+  //Language
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : ru;
   return (
     <div className={classNames}>
       <Text
@@ -52,8 +59,7 @@ const BoxBestComments: React.FC<Props> = ({
         fontWeight="bold"
         color="primary"
       >
-        Best comments
-      </Text>
+        {t.comments.best}      </Text>
 
       <Tabs
         className={styles.bestComments__tabs}
@@ -77,8 +83,7 @@ const BoxBestComments: React.FC<Props> = ({
                 className={styles.bestComments__noDataWrapper}
               >
                 <Text color="moonlight" size="md">
-                  No comments
-                </Text>
+                  {t.comments.no}                </Text>
               </Flexbox>
             ) : (
               commentTab.comments.map((comment) => (
@@ -113,8 +118,8 @@ const BoxBestComments: React.FC<Props> = ({
                           hoverTransition
                           className={styles.bestComments__moreLinkText}
                         >
-                          Read more
-                        </Text>
+                          {t.comments.more
+                          }                        </Text>
 
                         <ArrowMediumRightIcon width={43} height={8} />
                       </>

@@ -13,6 +13,11 @@ import PrevArrowIcon from "public/icons/icon-slider-prev-arrow.svg";
 
 // Import STYLES
 import styles from "./SectionBestFeedbacks.module.scss";
+//Import Language 
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
+import { useRouter } from 'next/router';
+
 
 type Props = { className?: string; data: FeedbackBest[] };
 
@@ -64,6 +69,11 @@ const SectionBestFeedbacks: React.FC<Props> = ({
     slickSlider.current!.slickPrev();
   };
 
+  //Geting locale
+  const router = useRouter();
+  const { locale } = router;
+  //Translation function
+  const t = locale === 'en' ? en : ru;
   return (
     <section className={classNames}>
       <Container>
@@ -73,7 +83,7 @@ const SectionBestFeedbacks: React.FC<Props> = ({
           className={styles.bestFeedbacks__header}
         >
           <Text color="primary" as="h3">
-            Best feedbacks
+            {t.feebacks.best}
           </Text>
           {data.length > 0 && (
             <div className={styles.bestFeedbacks__headerNav}>
@@ -90,7 +100,7 @@ const SectionBestFeedbacks: React.FC<Props> = ({
                 style={{
                   opacity:
                     slideIndexState ===
-                    (data ? data.length : 0) + 1 - slidesToShow
+                      (data ? data.length : 0) + 1 - slidesToShow
                       ? "0.6"
                       : "1",
                 }}
@@ -127,8 +137,7 @@ const SectionBestFeedbacks: React.FC<Props> = ({
             className={styles.bestFeedbacks__feedbacksNoFeedback}
           >
             <Text color="moonlight" size="lg">
-              No feedbacks found
-            </Text>
+              {t.feebacks.noFound}            </Text>
           </Flexbox>
         )}
 

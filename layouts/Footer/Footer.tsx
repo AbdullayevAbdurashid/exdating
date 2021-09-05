@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 
+
+import { useRouter } from "next/router";
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
 // Import COMPONENTS
 import {
   Container,
@@ -18,9 +22,77 @@ import RusoLogo from "public/logotype-ruso.svg";
 
 // Import STYLES
 import styles from "./Footer.module.scss";
+//Language
+
+const groupedLinksList =
+{
+  "ru": [
+    {
+      "groupName": "Сообщество",
+      "linkList": [
+        { "id": "1", "name": "Зарегистрироваться", "linkTo": "/signin" },
+        { "id": "2", "name": "Авторизоваться", "linkTo": "/login" },
+        { "id": "3", "name": "О нас", "linkTo": "/about" },
+        { "id": "4", "name": "Контакты", "linkTo": "/contacts" }
+      ]
+    },
+    {
+      "groupName": "Пользователи",
+      "linkList": [
+        { "id": "5", "name": "Лучший пользователи", "linkTo": "/topusers" },
+        { "id": "6", "name": "Последние пользователи", "linkTo": "#userslast" },
+        { "id": "7", "name": "Последние комментарии", "linkTo": "/lastcomments" },
+        { "id": "8", "name": "Все отзывы", "linkTo": "/feedbacks" }
+      ]
+    },
+    {
+      "groupName": "Навигация",
+      "linkList": [
+        { "id": "10", "name": "Социальный Глобальный", "linkTo": "#socialglobal" },
+        { "id": "11", "name": "Поиск трека", "linkTo": "#searchtrack" },
+        { "id": "12", "name": "Учетные записи", "linkTo": "#accounts" }
+      ]
+    }
+  ],
+
+
+
+  "en": [
+    {
+      "groupName": "Community",
+      "linkList": [
+        { "id": "1", "name": "Sign Up", "linkTo": "/signin" },
+        { "id": "2", "name": "Log In", "linkTo": "/login" },
+        { "id": "3", "name": "About", "linkTo": "/about" },
+        { "id": "4", "name": "Contacts", "linkTo": "/contacts" }
+      ]
+    },
+    {
+      "groupName": "Users",
+      "linkList": [
+        { "id": "5", "name": "Top User New", "linkTo": "/topusers" },
+        { "id": "6", "name": "Users Last", "linkTo": "#userslast" },
+        { "id": "7", "name": "Last Comments", "linkTo": "/lastcomments" },
+        { "id": "8", "name": "All Feedbacks", "linkTo": "/feedbacks" }
+      ]
+    },
+    {
+      "groupName": "Navigation",
+      "linkList": [
+        { "id": "10", "name": "Social Global", "linkTo": "#socialglobal" },
+        { "id": "11", "name": "Search Track", "linkTo": "#searchtrack" },
+        { "id": "12", "name": "Accounts", "linkTo": "#accounts" }
+      ],
+    }
+  ],
+
+
+}
+
+
+
 
 type Props = { className?: string; content?: FooterContent };
-
 const Footer: React.FC<Props> = ({ className, content }) => {
   const {
     isActive,
@@ -66,19 +138,20 @@ const Footer: React.FC<Props> = ({ className, content }) => {
   if (!isActive) {
     return null;
   }
+  const router = useRouter();
+  const { locale } = router;
 
   return (
     <footer className={classNames}>
       <Container className={styles.footer__container}>
         <div className={styles.footer__nav}>
-          {content?.groupedLinksList.map((nav, navIndex) => (
+          {groupedLinksList[locale].map((nav, navIndex) => (
             <div key={nav.groupName} className={styles.footer__navItem}>
               <Button
-                className={`${styles.footer__navTitleBtn} ${
-                  accordionToggleState[navIndex]
-                    ? styles.footer__navTitleBtn_hovered
-                    : ""
-                }`}
+                className={`${styles.footer__navTitleBtn} ${accordionToggleState[navIndex]
+                  ? styles.footer__navTitleBtn_hovered
+                  : ""
+                  }`}
                 onClick={() => handleToggleAccordion(navIndex)}
               >
                 <Text

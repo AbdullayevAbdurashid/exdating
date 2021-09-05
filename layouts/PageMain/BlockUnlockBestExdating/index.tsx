@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 
+//Language
+import en from '../../../locales/en.json';
+import ru from '../../../locales/ru.json';
 // Import COMPONENTS
 import { Text, Button } from "../../../components";
 
@@ -19,7 +22,9 @@ const BlockUnlockBestExdating: React.FC<Props> = ({ className }) => {
   const handleRouteToSignup = () => {
     router.push("/signup");
   };
-
+  //Language
+  const { locale } = router;
+  const t = locale === 'en' ? en : ru;
   return (
     <div className={classNames}>
       <Text
@@ -28,23 +33,25 @@ const BlockUnlockBestExdating: React.FC<Props> = ({ className }) => {
         fontWeight="bold"
         color="white"
       >
-        Unlock the best of Exdating
-      </Text>
+        {t.unlock.intro
+        }      </Text>
 
       <ul className={styles.unlockBestExdating__list}>
         <li className={styles.unlockBestExdating__listItem}>
           <Text color="white" size="sm">
-            Save your favorite travel ideas and see them on a map
+            {t.unlock.point1
+            }          </Text>
+        </li>
+        <li className={styles.unlockBestExdating__listItem}>
+          <Text color="white" size="sm">
+            {t.unlock.point2
+            }
           </Text>
         </li>
         <li className={styles.unlockBestExdating__listItem}>
           <Text color="white" size="sm">
-            Get price alerts and deals so you can travel your way
-          </Text>
-        </li>
-        <li className={styles.unlockBestExdating__listItem}>
-          <Text color="white" size="sm">
-            Ask questions and get answers from travelers like you
+            {t.unlock.point3
+            }
           </Text>
         </li>
       </ul>
@@ -61,8 +68,8 @@ const BlockUnlockBestExdating: React.FC<Props> = ({ className }) => {
           size="sm"
           fontWeight="semibold"
         >
-          Sign up
-        </Text>
+          {t.header.signUp
+          }        </Text>
 
         <span className={styles.unlockBestExdating__btnIconWrapper}>
           <ArrowLognRightIcon width={60} height={8} />

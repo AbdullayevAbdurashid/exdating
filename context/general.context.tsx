@@ -32,14 +32,14 @@ const defaultState: DefaultState = {
     positionY: 0,
   },
   actions: {
-    changePopupState: () => {},
-    changeScrollbarWidth: () => {},
-    changeScrollbarPositionY: () => {},
-    changeCountriesList: () => {},
-    changeCitiesList: () => {},
-    dropCountryList: () => {},
-    dropCitiesList: () => {},
-    selectCountryId: () => {},
+    changePopupState: () => { },
+    changeScrollbarWidth: () => { },
+    changeScrollbarPositionY: () => { },
+    changeCountriesList: () => { },
+    changeCitiesList: () => { },
+    dropCountryList: () => { },
+    dropCitiesList: () => { },
+    selectCountryId: () => { },
   },
 };
 

@@ -1,4 +1,7 @@
 import dynamic from "next/dynamic";
+
+
+//Language
 import en from '../../locales/en.json';
 import ru from '../../locales/ru.json';
 import { useRouter } from 'next/router';
@@ -76,9 +79,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
   //   setIsActivatedPopupState(data.accountActivated);
   // }, [data.accountActivated]);
 
-  useEffect(() => {
-    console.log("Main page data: ", data);
-  }, [data]);
+
 
   return (
     <main className={classNames}>
@@ -89,7 +90,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
             color="white"
             className={styles.mainWelcome__preheader}
           >
-            Read Feedbacks. Write Feedbacks.
+            {t.mainPage.banner1}
           </Text>
           <Text
             className={styles.mainWelcome__title}
@@ -97,7 +98,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
             color="white"
             center
           >
-            {t.bannerPage}          </Text>
+            {t.mainPage.banner2}          </Text>
 
           <SLink
             className={styles.mainWelcome__addFeedback}
@@ -110,7 +111,8 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
                 fontWeight="semibold"
                 color="gradientAnimated"
               >
-                Add feedback
+                {t.mainPage.addFeedback}
+
               </Text>
               <ArrowLongRightIcon
                 className={styles.mainWelcome__addFeedbackIcon}
@@ -137,7 +139,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
             fontWeight="semibold"
             className={styles.mainBFeedbacks__addBtnText}
           >
-            + Add your feedback
+            {t.mainPage.addButton}
           </Text>
         </Button>
       </SectionBestFeedbacks>
@@ -145,7 +147,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
       <section className={styles.mainAFeedbacks}>
         <Container>
           <Text color="primary" as="h3">
-            All feedbacks
+            {t.mainPage.all}
           </Text>
 
           <Flexbox className={styles.mainAFeedbacks__content}>
@@ -167,7 +169,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
                   justify="center"
                 >
                   <Text size="lg" color="moonlight">
-                    No feedbacks found
+                    {t.mainPage.found}
                   </Text>
                 </Flexbox>
               )}
@@ -208,8 +210,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
         <Container>
           <div className={styles.mainUpgrade__box}>
             <Text as="h3" color="white" className={styles.mainUpgrade__title}>
-              Let&apos;s upgrade the world
-            </Text>
+              {t.mainPage.upgrade}            </Text>
 
             <Text
               className={styles.mainUpgrade__paragraph}
@@ -217,10 +218,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
               color="white"
               size="md"
             >
-              Exdating is a feedback platform open to everyone. Share your
-              experiences to help others make better choices, and help companies
-              up their game.
-            </Text>
+              {t.mainPage.about}            </Text>
           </div>
 
           <div
@@ -237,8 +235,7 @@ const PageMain: React.FC<Props> = ({ className, data }) => {
                   fontWeight="semibold"
                   color="gradientAnimated"
                 >
-                  Get started
-                </Text>
+                  {t.mainPage.started}                </Text>
                 <ArrowVeryLongRightIcon
                   className={styles.mainWelcome__addFeedbackIcon}
                   width={88}

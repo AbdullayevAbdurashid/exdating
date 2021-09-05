@@ -42,8 +42,79 @@ type Props = {
   content?: HeaderContent;
 };
 
+
+//List of links in navbat
+const linkList = {
+  "en": [
+    {
+      "id": "1",
+      "name": "Home",
+      "linkTo": "/"
+    },
+    {
+      "id": "4",
+      "name": "All feedbacks",
+      "linkTo": "/feedbacks"
+    },
+    {
+      "id": "5",
+      "name": "Top Users",
+      "linkTo": "/topusers"
+    },
+    {
+      "id": "6",
+      "name": "Global Search",
+      "linkTo": "/globalsearch"
+    },
+    {
+      "id": "7",
+      "name": "Track Accounts",
+      "linkTo": "/trackaccounts"
+    },
+    {
+      "id": "8",
+      "name": "Contacts",
+      "linkTo": "/contacts"
+    }
+
+  ],
+  "ru": [
+    {
+      "id": "1",
+      "name": "Домой",
+      "linkTo": "/"
+    },
+    {
+      "id": "4",
+      "name": "Все отзывы",
+      "linkTo": "/feedbacks"
+    },
+    {
+      "id": "5",
+      "name": "Лучшие пользователи",
+      "linkTo": "/topusers"
+    },
+    {
+      "id": "6",
+      "name": "Глобальный Поиск",
+      "linkTo": "/globalsearch"
+    },
+    {
+      "id": "7",
+      "name": "Отслеживание пользователей",
+      "linkTo": "/trackaccounts"
+    },
+    {
+      "id": "8",
+      "name": "Контакты",
+      "linkTo": "/contacts"
+    }
+
+  ]
+}
 const Header: React.FC<Props> = ({ className, self, content }) => {
   const router = useRouter();
+
 
   // CONTROLLERS
   const {
@@ -82,21 +153,23 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
     changePopupState(state);
   };
 
-  // Translatio
+  // Translation
 
+  //Geting locale
   const { locale } = router;
-  const t = locale === 'en' ? en : ru;
 
-
-  const changeLanguage = (e: any) => {
-    const locale = e.target.value;
+  //Changing language function
+  const changeLanguage = (locale: string) => {
     router.push(router.pathname, router.asPath, { locale });
-
   };
 
+  //Translation function
+  const t = locale === 'en' ? en : ru;
 
   return (
-    <div style={{ paddingRight: scrollPadding }} className={classNames}>
+
+    <div style={{ paddingRight: scrollPadding }
+    } className={classNames} >
       <Container>
         <Flexbox
           align="center"
@@ -115,7 +188,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
           <div className={styles.header__navWrapper}>
             <nav className={styles.header__navContainer}>
               <ul className={styles.header__nav}>
-                {content?.linkList.map((element) => (
+                {linkList[locale].map((element: any) => (
                   <li
                     key={element.id}
                     className={`${styles.header__navItem} ${router.pathname === element.linkTo
@@ -235,7 +308,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                       size="sm"
                       fontWeight="semibold"
                     >
-                      Log in
+                      {t.header.login}
                     </Text>
 
                     <ArrowRightIcon width={16} height={8} />
@@ -252,20 +325,14 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                       size="sm"
                       fontWeight="semibold"
                     >
-                      Sign up
-                    </Text>
+                      {t.header.signUp
+                      }                    </Text>
 
                     <ArrowRightIcon width={16} height={8} />
                   </Button>
-                  <select
-                    onChange={changeLanguage}
-                    defaultValue={locale}
-                  >
-                    <option className="text-black" value="ru">RU</option>
-                    <option className="text-black" value="en">EN</option>
-                  </select>
+
                   <Dropdown
-                    initialValue={content ? content.languagesList[0] : null}
+                    initialValue={content ? content.languagesList[1] : null}
                     className={styles.header__langBtn}
                     animated
                     renderSelect={({ selectedValue, isActive, isHovered }) => (
@@ -287,12 +354,14 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                   >
                     {({ selectedValue, onSelect }) => (
                       <DropmenuBubble>
-                        <ul className={styles.header__langDropdown}>
+                        <ul className={styles.header__langDropdown}
+                        >
                           {content?.languagesList.map((lang) => (
                             <li
                               className={styles.header__langItem}
                               key={lang.id}
-                              onClick={() => onSelect(lang)}
+                              onClick={() => { changeLanguage(lang.shortсut); onSelect(lang) }
+                              }
                               onKeyPress={() => { }}
                               role="option"
                               aria-selected={false}
@@ -327,7 +396,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
           </div>
         </Flexbox>
       </Container>
-    </div>
+    </div >
   );
 };
 

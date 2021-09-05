@@ -1,6 +1,20 @@
 // const optimizedImages = require("next-optimized-images");
 // const withPlugins = require("next-compose-plugins");
 
+//Detectiong brauser local
+// import { useState } from "react";
+// const [defaults, setDefault] = useState()
+
+// if (navigator.language === "en-EN") {
+//   //converting to string
+//   setDefault("en")
+// } else if (navigator.language === "ru-RU") {
+//   setDefault("ru")
+
+// } else {
+//   setDefault("en")
+
+// }
 
 const nextConfig = {
   i18n: {
@@ -12,7 +26,7 @@ const nextConfig = {
     REST_API: "https://artruso.ru/api",
     REMOTE: "https://artruso.ru",
     // TODO remove SECRET_COOKIE_PASSWORD to .env for production
-    SECRET_COOKIE_PASSWORD: "MQj1VxGYm2JoF0rvt6w1Trd3qTvjQUrRhtt5jhZ1",
+    SECRET_COOKIE_PASSWORD: "9NdqAL6oFC3qsUh6bqfNCKWZImZlnlbpVDGJ4XHN",
   },
   webpack: (config) => {
     config.module.rules.push({
