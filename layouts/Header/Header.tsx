@@ -188,7 +188,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
           <div className={styles.header__navWrapper}>
             <nav className={styles.header__navContainer}>
               <ul className={styles.header__nav}>
-                {locale != null ? linkList[locale].map((element: any) => (
+                {linkList.ru.map((element: any) => (
                   <li
                     key={element.id}
                     className={`${styles.header__navItem} ${router.pathname === element.linkTo
@@ -210,7 +210,7 @@ const Header: React.FC<Props> = ({ className, self, content }) => {
                       </Text>
                     </SLink>
                   </li>
-                )) : null}
+                ))}
               </ul>
             </nav>
 

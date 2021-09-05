@@ -145,7 +145,7 @@ const Footer: React.FC<Props> = ({ className, content }) => {
     <footer className={classNames}>
       <Container className={styles.footer__container}>
         <div className={styles.footer__nav}>
-          {groupedLinksList[locale].map((nav, navIndex) => (
+          {groupedLinksList.ru.map((nav, navIndex) => (
             <div key={nav.groupName} className={styles.footer__navItem}>
               <Button
                 className={`${styles.footer__navTitleBtn} ${accordionToggleState[navIndex]
