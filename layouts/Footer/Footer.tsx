@@ -24,7 +24,9 @@ import RusoLogo from "public/logotype-ruso.svg";
 import styles from "./Footer.module.scss";
 //Language
 
-const groupedLinksList =
+type locale = string
+
+const groupedLinksList: { [key: string]: any } =
 {
   "ru": [
     {
@@ -145,7 +147,7 @@ const Footer: React.FC<Props> = ({ className, content }) => {
     <footer className={classNames}>
       <Container className={styles.footer__container}>
         <div className={styles.footer__nav}>
-          {groupedLinksList.ru.map((nav, navIndex) => (
+          {locale != null ? groupedLinksList[locale].map((nav: any, navIndex: any) => (
             <div key={nav.groupName} className={styles.footer__navItem}>
               <Button
                 className={`${styles.footer__navTitleBtn} ${accordionToggleState[navIndex]
@@ -168,7 +170,7 @@ const Footer: React.FC<Props> = ({ className, content }) => {
                 style={{ maxHeight: accordionToggleState[navIndex] ? 200 : 0 }}
                 className={styles.footer__navList}
               >
-                {nav.linkList.map((link) => (
+                {nav.linkList.map((link: any) => (
                   <li key={link.id} className={styles.footer__navListItem}>
                     <SLink href={link.linkTo}>
                       {({ hoverState }) => (
@@ -185,7 +187,7 @@ const Footer: React.FC<Props> = ({ className, content }) => {
                 ))}
               </ul>
             </div>
-          ))}
+          )) : null}
         </div>
 
         <div className={styles.footer__rightBox}>

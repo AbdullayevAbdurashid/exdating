@@ -34,5 +34,10 @@
         "point1": "Save your favorite travel ideas and see them on a map",
         "point2": "Get price alerts and deals so you can travel your way",
         "point3": "Ask questions and get answers from travelers like you"
+    },
+    "menu": {
+        "back": "Back",
+        "language": "Language:",
+        "english": "English"
     }
 }

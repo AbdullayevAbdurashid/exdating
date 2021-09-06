@@ -1,6 +1,6 @@
 // Import COMPONENTS
 import { SLink, Text, Button, Burger, Flexbox } from "components";
-
+import { useState } from "react";
 // Import HOOKS
 import { serviceHooks } from "hooks";
 
@@ -10,6 +10,79 @@ import ArrowRightIcon from "public/icons/icon-arrow-right.svg";
 // Import STYLES
 import styles from "./Menu.module.scss";
 
+import { useRouter } from "next/router";
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
+
+//List of links in navbat
+const linkList: { [key: string]: any } = {
+  "en": [
+    {
+      "id": "1",
+      "name": "Home",
+      "linkTo": "/"
+    },
+    {
+      "id": "4",
+      "name": "All feedbacks",
+      "linkTo": "/feedbacks"
+    },
+    {
+      "id": "5",
+      "name": "Top Users",
+      "linkTo": "/topusers"
+    },
+    {
+      "id": "6",
+      "name": "Global Search",
+      "linkTo": "/globalsearch"
+    },
+    {
+      "id": "7",
+      "name": "Track Accounts",
+      "linkTo": "/trackaccounts"
+    },
+    {
+      "id": "8",
+      "name": "Contacts",
+      "linkTo": "/contacts"
+    }
+
+  ],
+  "ru": [
+    {
+      "id": "1",
+      "name": "Домой",
+      "linkTo": "/"
+    },
+    {
+      "id": "4",
+      "name": "Все отзывы",
+      "linkTo": "/feedbacks"
+    },
+    {
+      "id": "5",
+      "name": "Лучшие пользователи",
+      "linkTo": "/topusers"
+    },
+    {
+      "id": "6",
+      "name": "Глобальный Поиск",
+      "linkTo": "/globalsearch"
+    },
+    {
+      "id": "7",
+      "name": "Отслеживание пользователей",
+      "linkTo": "/trackaccounts"
+    },
+    {
+      "id": "8",
+      "name": "Контакты",
+      "linkTo": "/contacts"
+    }
+
+  ]
+}
 type Props = {
   className?: string;
   content?: HeaderContent;
@@ -35,6 +108,21 @@ const Menu: React.FC<Props> = ({ className, content }) => {
     isLanguageMenuActive ? styles.menu_activeSide : "",
     className,
   ].join(" ");
+  const [current, setCurrent] = useState("English")
+
+  //Language 
+  const router = useRouter();
+  //Geting locale
+  const { locale } = router;
+
+  //Changing language function
+  const changeLanguage = (locale: string, name: string) => {
+    router.push(router.pathname, router.asPath, { locale });
+    setCurrent(name)
+  };
+
+  //Translation function
+  const t = locale === 'en' ? en : ru;
 
   return (
     <div
@@ -79,8 +167,8 @@ const Menu: React.FC<Props> = ({ className, content }) => {
                 size="sm"
                 fontWeight="semibold"
               >
-                Sign up
-              </Text>
+                {t.header.signUp
+                }              </Text>
             </Button>
 
             <Burger
@@ -95,7 +183,7 @@ const Menu: React.FC<Props> = ({ className, content }) => {
         <Flexbox className={styles.menu__content}>
           <div className={styles.menu__navWrapper}>
             <ul className={styles.menu__nav}>
-              {content?.linkList.map((element) => (
+              {locale != null ? linkList[locale].map((element: any) => (
                 <li key={element.id} className={styles.menu__navItem}>
                   <SLink
                     onClick={(e) => onLink(e, element.linkTo)}
@@ -113,7 +201,7 @@ const Menu: React.FC<Props> = ({ className, content }) => {
                     )}
                   </SLink>
                 </li>
-              ))}
+              )) : null}
 
               <li
                 className={`${styles.menu__navItem} ${styles.menu__navItemLogin}`}
@@ -126,8 +214,8 @@ const Menu: React.FC<Props> = ({ className, content }) => {
                       size="sm"
                       hoverTransition
                     >
-                      Login in
-                    </Text>
+                      {t.header.login
+                      }                    </Text>
                   )}
                 </SLink>
               </li>
@@ -135,7 +223,7 @@ const Menu: React.FC<Props> = ({ className, content }) => {
 
             <div className={styles.menu__language}>
               <Text className={styles.menu__languageText} size="md">
-                Langauge:
+                {t.menu.language}
               </Text>
 
               <Button
@@ -148,7 +236,7 @@ const Menu: React.FC<Props> = ({ className, content }) => {
                   size="md"
                   color="orange"
                 >
-                  English
+                  {current}
                 </Text>
               </Button>
             </div>
@@ -161,7 +249,7 @@ const Menu: React.FC<Props> = ({ className, content }) => {
                   <Button
                     theme="transparent"
                     className={styles.menu__navItemBtn}
-                    onClick={() => onLangChange(lang)}
+                    onClick={() => { changeLanguage(lang.shortсut, lang.name); onLangChange(lang) }}
                   >
                     <Text
                       className={styles.menu__navItemText}
