@@ -2,7 +2,6 @@ import React from 'react'
 import en from '../locales/en.json';
 import ru from '../locales/ru.json';
 import { useRouter } from 'next/router';
-import useLocation from "react"
 
 
 function Example() {

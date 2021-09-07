@@ -45,11 +45,11 @@ export const restorePassword = async (
 };
 export const restorePass = async (
   enterField: string,
-  has: string
+  had: string
 ) => {
 
   const response = await get(
-    `/forgottenpass?enterField=${enterField}&has=${has}`)
+    `/forgottenpass?enterField=${enterField}&had=${had}`)
 
   return response;
 };
