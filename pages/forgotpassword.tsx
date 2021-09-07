@@ -11,12 +11,12 @@ import commonContentData from "utils/mocks";
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
-export default function ForgotPassword({ footer, header,self }: Props) {
+export default function ForgotPassword({ footer, header, self }: Props) {
   return (
     <WrapperPage
       title="Exdating - Password recovery"
       commonContent={{ footer, header }}
-     self={self}
+      self={self}
     >
       <PageResetPassword />
     </WrapperPage>
@@ -31,7 +31,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   return {
     props: {
-      ...commonContent, 
+      ...commonContent,
       self: self.status ? self.payload.data : null,
     },
     redirect: !self.status ? redirectProps : undefined,

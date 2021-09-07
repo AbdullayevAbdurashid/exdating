@@ -49,8 +49,7 @@ export const restorePass = async (
 ) => {
 
   const response = await get(
-    `/forgottenpass?enterField=${enterField}&had=${had}`)
-
+    `/forgottenpass?enterField=${enterField}&has=${had}`)
   return response;
 };
 export const resetPassword = async (token: string, password: string) => {
@@ -60,3 +59,4 @@ export const resetPassword = async (token: string, password: string) => {
 
   return response;
 };
+// /?enterField=marvel20182019@gmail.com&has=4702

@@ -21,7 +21,6 @@ export type GeneralActions = {
   dropCitiesList: () => void;
   selectCountryId: (id: string) => void;
 };
-
 const defaultState: DefaultState = {
   countries: [],
   selectedCountryId: null,

@@ -6,6 +6,7 @@ import { BoxSimpleRounded, Text, Button, Input } from "components";
 
 // Import LAYOUTS
 import { WrapperAuth } from "layouts";
+import { useRouter } from 'next/router';
 
 // Import STYLES
 import styles from "./PageResetPassword.module.scss";
@@ -13,9 +14,11 @@ import styles from "./PageResetPassword.module.scss";
 type Props = {
   className?: string;
   isEmailConfirmed?: boolean;
+  verified?: boolean;
 };
 
 const PageResetPassword: React.FC<Props> = ({
+  verified,
   className,
   isEmailConfirmed,
 }) => {
@@ -31,6 +34,7 @@ const PageResetPassword: React.FC<Props> = ({
     actions: { handleChangePassword, handleConfirmEmail, handleRouteBack },
     form: { errors, handleSubmit, register },
   } = useResetPasswordHandlers(isEmailConfirmed);
+  const router = useRouter();
 
   return (
     <WrapperAuth onBack={handleRouteBack}>
@@ -41,13 +45,13 @@ const PageResetPassword: React.FC<Props> = ({
           color="greyDark"
           fontWeight="semibold"
         >
-Forgot password?        </Text>
+          Forgot password?        </Text>
         <Text
           className={styles.resetPassword__description}
           size="sm"
           color="grey"
         >
-Enter the email address or phone number you used when you joined and we’ll send you instructions to reset your password.
+          Enter the email address or phone number you used when you joined and we’ll send you instructions to reset your password.
         </Text>
         <Text
           className={styles.resetPassword__description}
@@ -55,7 +59,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
           color="grey"
         >
           For security reasons, we do NOT store your password. So rest assured that we will never send your password via email.
-          </Text>
+        </Text>
         <Text
           size="sm"
           color="greyDark"
@@ -99,7 +103,7 @@ Enter the email address or phone number you used when you joined and we’ll sen
                 type="password"
                 placeholder="Repeat"
                 name="repeatpassword"
-                  error={errors.repeatpassword}
+                error={errors.repeatpassword}
                 className={styles.resetPassword__formPassword}
               />
             </>
