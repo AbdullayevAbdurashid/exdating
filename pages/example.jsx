@@ -2,9 +2,10 @@ import React from 'react'
 import en from '../locales/en.json';
 import ru from '../locales/ru.json';
 import { useRouter } from 'next/router';
+import useLocation from "react"
+
 
 function Example() {
-
     const router = useRouter();
     const { locale } = router;
     const t = locale === 'en' ? en : ru;
@@ -15,6 +16,8 @@ function Example() {
         const locale = e.target.value;
         router.push(router.pathname, router.asPath, { locale });
     };
+
+    console.log(router.pathname)
 
     return (
         <div>

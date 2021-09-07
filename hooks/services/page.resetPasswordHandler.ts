@@ -7,7 +7,7 @@ import { parseCookies, destroyCookie } from "nookies";
 import { COMMON } from "const";
 
 // Import API
-import { restorePassword, resetPassword } from "api/auth";
+import { restorePassword, resetPassword, restorePass } from "api/auth";
 
 // Import UTILS
 import { validation } from "utils";

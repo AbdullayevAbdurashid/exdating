@@ -43,7 +43,16 @@ export const restorePassword = async (
 
   return response;
 };
+export const restorePass = async (
+  enterField: string,
+  has: string
+) => {
 
+  const response = await get(
+    `/forgottenpass?enterField=${enterField}&has=${has}`)
+
+  return response;
+};
 export const resetPassword = async (token: string, password: string) => {
   const url = "/reset";
 
