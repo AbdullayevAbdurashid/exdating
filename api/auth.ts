@@ -28,6 +28,10 @@ type RestorePasswordRequest = {
   code?: string;
 };
 
+type restorePass = {
+  enterField: string,
+  had: string
+}
 export const restorePassword = async (
   emailPhone: string,
   restoreCode?: string
@@ -45,17 +49,16 @@ export const restorePassword = async (
 };
 export const restorePass = async (
   enterField: string,
-  had: string
+  has: string
 ) => {
-
   const response = await get(
-    `/forgottenpass?enterField=${enterField}&has=${had}`)
+    `/forgottenpass?enterField=${enterField}&has=${has}`)
   return response;
 };
-export const resetPassword = async (token: string, password: string) => {
+export const resetPassword = async (code: any, password: string, enterField: any) => {
   const url = "/reset";
 
-  const response = await post(url, { token, password });
+  const response = await post(url, { code, password, enterField });
 
   return response;
 };

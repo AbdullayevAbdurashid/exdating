@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 // Import API
 import { restorePass } from "api/auth";
-
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -22,7 +20,7 @@ export default async function handler(
             console.log(verifyResponse.status)
         }
 
-        return console.log(res), res.redirect("/forgotenpass?verified=ok&code");
+        return res.redirect(`/forgotenpass?verified=ok&code=${query.has}&enterField=${query.enterField}`);
 
     }
 

@@ -12,7 +12,7 @@ import { restorePassword, resetPassword, restorePass } from "api/auth";
 // Import UTILS
 import { validation } from "utils";
 
-const useResetPasswordHandlers = (isEmailConfirmed?: boolean) => {
+const useResetPasswordHandlers = (isEmailConfirmed?: boolean, code?: any, field?: any) => {
   const {
     COOKIES: { RESTORE_TOKEN },
   } = COMMON;
@@ -20,7 +20,7 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean) => {
   // NEXTJS
   const route = useRouter();
 
-  // FORM
+  // FORM 
   const {
     register,
     handleSubmit,
@@ -39,11 +39,10 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean) => {
       }
     });
   };
-
   const handleChangePassword = (data: PasswordResetFormValues) => {
     const token = parseCookies(null)[RESTORE_TOKEN];
 
-    resetPassword(token, data.password).then((resetPasswordResponse) => {
+    resetPassword(code, field, data.password).then((resetPasswordResponse) => {
       console.log("resetPasswordResponse: ", resetPasswordResponse);
       reset();
 

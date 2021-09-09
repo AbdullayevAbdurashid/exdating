@@ -73,7 +73,7 @@ const groupedLinksList: { [key: string]: any } =
       "groupName": "Users",
       "linkList": [
         { "id": "5", "name": "Top User New", "linkTo": "/topusers" },
-        { "id": "6", "name": "Users Last", "linkTo": "#userslast" },
+        { "id": "6", "name": "Users Last", "linkTo": "/userslast" },
         { "id": "7", "name": "Last Comments", "linkTo": "/lastcomments" },
         { "id": "8", "name": "All Feedbacks", "linkTo": "/feedbacks" }
       ]
@@ -81,9 +81,9 @@ const groupedLinksList: { [key: string]: any } =
     {
       "groupName": "Navigation",
       "linkList": [
-        { "id": "10", "name": "Social Global", "linkTo": "#socialglobal" },
-        { "id": "11", "name": "Search Track", "linkTo": "#searchtrack" },
-        { "id": "12", "name": "Accounts", "linkTo": "#accounts" }
+        { "id": "10", "name": "Social Global", "linkTo": "/socialglobal" },
+        { "id": "11", "name": "Search Track", "linkTo": "/searchtrack" },
+        { "id": "12", "name": "Accounts", "linkTo": "/accounts" }
       ],
     }
   ],

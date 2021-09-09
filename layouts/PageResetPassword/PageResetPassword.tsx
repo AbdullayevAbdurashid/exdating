@@ -15,12 +15,15 @@ type Props = {
   className?: string;
   isEmailConfirmed?: boolean;
   verified?: boolean;
+  code?: any;
+  field?: any;
 };
 
 const PageResetPassword: React.FC<Props> = ({
-  verified,
+  code,
   className,
   isEmailConfirmed,
+  field
 }) => {
   const classNames = [
     styles.resetPassword,
@@ -33,9 +36,8 @@ const PageResetPassword: React.FC<Props> = ({
   const {
     actions: { handleChangePassword, handleConfirmEmail, handleRouteBack },
     form: { errors, handleSubmit, register },
-  } = useResetPasswordHandlers(isEmailConfirmed);
-  const router = useRouter();
-
+  } = useResetPasswordHandlers(isEmailConfirmed, code, field);
+  console.log(field)
   return (
     <WrapperAuth onBack={handleRouteBack}>
       <BoxSimpleRounded className={classNames}>

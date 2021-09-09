@@ -12,7 +12,9 @@ type LoginRequestData = {
   enterField: string;
   password: string;
 };
-
+type CodeSignUp = {
+  code: any;
+}
 type SignupForm = {
   email_phone: string;
   password: string;
@@ -57,6 +59,7 @@ type PasswordResetFormValues = {
   email: string;
   password: string;
   repeatpassword: string;
+  code: any;
 };
 
 type LoginSignupFormValues = {

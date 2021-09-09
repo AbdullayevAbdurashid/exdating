@@ -10,9 +10,10 @@ const Forgotenpass: React.FC<Props> = ({
   verified,
   footer,
   header,
-  self
+  self,
+  code,
+  field,
 }) => {
-
   return (
     <div>
       <WrapperPage
@@ -20,7 +21,7 @@ const Forgotenpass: React.FC<Props> = ({
         commonContent={{ footer, header }}
         self={self}
       >
-        <PageResetPassword isEmailConfirmed={verified} />
+        <PageResetPassword isEmailConfirmed={verified} field={field} code={code} />
       </WrapperPage>
     </div>
   )
@@ -30,14 +31,15 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 
   const self = await getSelf(ctx);
   const { query } = ctx;
-  console.log(query)
 
-  const redirectProps = { permanent: false, destination: "/404" };
+  // const redirectProps = { permanent: false, destination: "/404" };
 
   return {
     props: {
 
       ...commonContent,
+      code: (query.code) || null,
+      field: (query.enterField) || null,
       verified: (query.verified && query.verified === "ok") || false,
       self: self.status ? self.payload.data : null,
     },
