@@ -56,10 +56,11 @@ type PhoneConfirmationFormValues = {
 };
 
 type PasswordResetFormValues = {
-  email: string;
+  email: any;
   password: string;
   repeatpassword: string;
   code: any;
+  email: string
 };
 
 type LoginSignupFormValues = {
