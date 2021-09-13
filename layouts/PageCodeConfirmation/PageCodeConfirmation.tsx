@@ -12,21 +12,21 @@ import styles from "./PageCodeConfirmation.module.scss";
 
 type Props = {
   email: string;
+  code?: any;
 };
 
-const PageCodeConfirmation: React.FC<Props> = ({ email }) => {
+const PageCodeConfirmation: React.FC<Props> = ({ email, code }) => {
   const classNames = [styles.codeConfirmation].join(" ");
 
   const {
     form: { register, errors, handleSubmit },
     actions: { handleConfirmCode, handleRouteBack },
-  } = useCodeConfirmationController(email);
-
+  } = useCodeConfirmationController(email, code);
   return (
     <WrapperAuth onBack={handleRouteBack}>
       <BoxSimpleRounded className={classNames}>
         <Text as="h5" color="greyDark" fontWeight="semibold">
-          Enter code
+          Confirm your email
         </Text>
 
         <form
@@ -37,9 +37,10 @@ const PageCodeConfirmation: React.FC<Props> = ({ email }) => {
             className={styles.codeConfirmation__input}
             register={register}
             type="text"
-            placeholder="Code"
+            placeholder={code}
             name="code"
             error={errors.code}
+            value={code}
           />
 
           <Button

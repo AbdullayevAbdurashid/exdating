@@ -15,7 +15,7 @@ import { restorePassword } from "api/auth";
 // Import UTILS
 import { validation } from "utils";
 
-const useCodeConfirmationController = (email: string) => {
+const useCodeConfirmationController = (email: string, code: any) => {
   const {
     COOKIES: { RESTORE_TOKEN },
   } = COMMON;
@@ -26,6 +26,7 @@ const useCodeConfirmationController = (email: string) => {
   // SERVICES
   const { useNotification } = libHooks;
   const { setErrorNotification } = useNotification();
+  const { setSucceedNotification } = useNotification();
 
   // FORM
   const {
@@ -34,16 +35,16 @@ const useCodeConfirmationController = (email: string) => {
     handleSubmit,
     reset,
   } = useForm<CodeConfirmationForm>({
-    defaultValues: { code: "" },
     resolver: yupResolver(validation.codeConfirmSchema),
   });
 
-  const handleConfirmCode = (data: CodeConfirmationForm) => {
-    restorePassword(email, data.code).then((restorePasswordResponse) => {
+  const handleConfirmCode = () => {
+    restorePassword(email, code).then((restorePasswordResponse) => {
       console.log("restorePasswordResponse: ", restorePasswordResponse);
       reset();
 
       if (restorePasswordResponse.status) {
+        setSucceedNotification("You succesfully verificated your email")
         if (restorePasswordResponse.payload.token) {
           setCookie(
             null,
@@ -52,7 +53,7 @@ const useCodeConfirmationController = (email: string) => {
             {}
           );
 
-          route.push("/resetpassword");
+          route.push(`/forgotenpass?verified=ok&enterField=${email}`);
         }
       } else {
         setErrorNotification(

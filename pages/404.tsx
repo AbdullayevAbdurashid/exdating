@@ -14,7 +14,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Forbidden({ footer, header }: Props) {
   return (
-    <WrapperPage title="Exdating - Forvidden 404" commonContent={{ footer, header }}>
+    <WrapperPage title="Exdating - Forbidden 404" commonContent={{ footer, header }}>
       <Page404 />
     </WrapperPage>
   );

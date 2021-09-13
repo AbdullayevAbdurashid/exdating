@@ -41,7 +41,7 @@ const Input: React.FC<InputProps> = ({
   className,
   register,
   error,
-  type = "text",
+  type,
   placeholder,
   name,
   disabled,
@@ -61,9 +61,8 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={classNames}>
       <input
-        className={`${styles.input__field} ${
-          error ? styles.input__field_isError : ""
-        }`}
+        className={`${styles.input__field} ${error ? styles.input__field_isError : ""
+          }`}
         ref={register ? register() : undefined}
         type={type}
         placeholder={placeholder}
@@ -74,6 +73,7 @@ const Input: React.FC<InputProps> = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+
       />
 
       {error && <div className={styles.input__error}>{error.message}</div>}

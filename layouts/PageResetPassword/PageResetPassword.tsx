@@ -8,6 +8,11 @@ import { BoxSimpleRounded, Text, Button, Input } from "components";
 import { WrapperAuth } from "layouts";
 import { useRouter } from 'next/router';
 
+// SERVICES
+import { libHooks } from "hooks";
+
+
+
 // Import STYLES
 import styles from "./PageResetPassword.module.scss";
 
@@ -15,15 +20,11 @@ type Props = {
   className?: string;
   isEmailConfirmed?: boolean;
   verified?: boolean;
-  code?: any;
-  field?: any;
 };
 
 const PageResetPassword: React.FC<Props> = ({
-  code,
   className,
   isEmailConfirmed,
-  field
 }) => {
   const classNames = [
     styles.resetPassword,
@@ -34,10 +35,10 @@ const PageResetPassword: React.FC<Props> = ({
   // SERVICES
   const { useResetPasswordHandlers } = serviceHooks;
   const {
-    actions: { handleChangePassword, handleConfirmEmail, handleRouteBack },
+    actions: { handleChangePassword, handleRouteBack, handleConfirmEmail },
     form: { errors, handleSubmit, register },
-  } = useResetPasswordHandlers(isEmailConfirmed, code, field);
-  console.log(field)
+  } = useResetPasswordHandlers(isEmailConfirmed);
+
   return (
     <WrapperAuth onBack={handleRouteBack}>
       <BoxSimpleRounded className={classNames}>
@@ -47,20 +48,20 @@ const PageResetPassword: React.FC<Props> = ({
           color="greyDark"
           fontWeight="semibold"
         >
-          Forgot password?        </Text>
+          {isEmailConfirmed ? "Reset Password" : "Forgot password?"}  </Text>
         <Text
           className={styles.resetPassword__description}
           size="sm"
           color="grey"
         >
-          Enter the email address or phone number you used when you joined and we’ll send you instructions to reset your password.
+          {isEmailConfirmed ? "" : "Enter the email address or phone number you used when you joined and we’ll send you instructions to reset your password."}
         </Text>
         <Text
           className={styles.resetPassword__description}
           size="sm"
           color="grey"
         >
-          For security reasons, we do NOT store your password. So rest assured that we will never send your password via email.
+          {isEmailConfirmed ? "" : "For security reasons, we do NOT store your password. So rest assured that we will never send your password via email."}
         </Text>
         <Text
           size="sm"
@@ -81,10 +82,10 @@ const PageResetPassword: React.FC<Props> = ({
           {!isEmailConfirmed && (
             <Input
               register={register}
-              type="email"
-              placeholder="Phone number or  email"
-              name="email"
+              type="text"
               error={errors.email}
+              name="email"
+              placeholder="Phone number or  email"
               className={styles.resetPassword__formEmail}
             />
           )}

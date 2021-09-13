@@ -4,13 +4,15 @@
     width: 255px;
   }
   &__input {
+    display: none;
     margin-top: 20px;
   }
   &__btn {
     &Submit {
+
       width: 100%;
-      margin-top: 20px;
-      line-height: 49px;
+      margin-top: 80px;
+      line-height: 59px;
     }
   }
 }

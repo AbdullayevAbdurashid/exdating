@@ -5,14 +5,15 @@ import { parseCookies, destroyCookie } from "nookies";
 
 // Import CONSTANTS
 import { COMMON } from "const";
+import { libHooks } from "hooks";
 
 // Import API
-import { restorePassword, resetPassword, restorePass } from "api/auth";
+import { restorePassword, resetPassword, } from "api/auth";
 
 // Import UTILS
 import { validation } from "utils";
 
-const useResetPasswordHandlers = (isEmailConfirmed?: boolean, code?: any, field?: any) => {
+const useResetPasswordHandlers = (isEmailConfirmed?: boolean,) => {
   const {
     COOKIES: { RESTORE_TOKEN },
   } = COMMON;
@@ -20,6 +21,9 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean, code?: any, field?
   // NEXTJS
   const route = useRouter();
 
+  const { useNotification } = libHooks;
+  const { setErrorNotification } = useNotification();
+  const { setSucceedNotification } = useNotification();
   // FORM 
   const {
     register,
@@ -33,22 +37,33 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean, code?: any, field?
   });
 
   const handleConfirmEmail = (data: PasswordResetFormValues) => {
-    restorePassword(data.email).then((restorePasswordResponse) => {
-      if (restorePasswordResponse.status) {
-        route.push(`/codeconfirmation?email=${data.email}`);
+    restorePassword(data.email).then((sendMailResponse) => {
+      if (sendMailResponse.status) {
+        setSucceedNotification("We sended you email")
       }
-    });
-  };
+      else {
+        setErrorNotification("This email is not existing or we have some problems up there")
+      }
+    })
+  }
+
+
+
   const handleChangePassword = (data: PasswordResetFormValues) => {
     const token = parseCookies(null)[RESTORE_TOKEN];
 
-    resetPassword(code, field, data.password).then((resetPasswordResponse) => {
+    resetPassword(data.password, token).then((resetPasswordResponse) => {
       console.log("resetPasswordResponse: ", resetPasswordResponse);
       reset();
 
       if (resetPasswordResponse.status) {
+        setSucceedNotification("You changed youre password succesfully")
+
         destroyCookie(null, RESTORE_TOKEN);
         route.push("/login");
+      } else {
+        setErrorNotification("Youre code expired or something went wrong")
+
       }
     });
   };
@@ -57,7 +72,7 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean, code?: any, field?
     route.back();
   };
 
-  const actions = { handleConfirmEmail, handleChangePassword, handleRouteBack };
+  const actions = { handleChangePassword, handleRouteBack, handleConfirmEmail };
   const form = { register, handleSubmit, errors };
 
   return { actions, form };

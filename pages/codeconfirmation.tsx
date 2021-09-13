@@ -11,7 +11,7 @@ import commonContentData from "utils/mocks";
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
-export default function ConfirmCode({ footer, header, self, email }: Props) {
+export default function ConfirmCode({ footer, header, self, email, code }: Props) {
   if (email == null || typeof email !== "string") {
     return null;
   }
@@ -22,7 +22,7 @@ export default function ConfirmCode({ footer, header, self, email }: Props) {
       commonContent={{ footer, header }}
       self={self}
     >
-      <PageCodeConfirmation email={email} />
+      <PageCodeConfirmation email={email} code={code} />
     </WrapperPage>
   );
 }
@@ -39,7 +39,8 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
       ...commonContent,
       self: self.status ? self.payload.data : null,
       email: query.email,
+      code: query.code,
     },
-    redirect: !self.status || !query.email ? redirectProps : undefined,
+    redirect: !query.email ? redirectProps : undefined,
   };
 }

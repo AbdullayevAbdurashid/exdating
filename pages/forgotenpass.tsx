@@ -11,8 +11,6 @@ const Forgotenpass: React.FC<Props> = ({
   footer,
   header,
   self,
-  code,
-  field,
 }) => {
   return (
     <div>
@@ -21,7 +19,7 @@ const Forgotenpass: React.FC<Props> = ({
         commonContent={{ footer, header }}
         self={self}
       >
-        <PageResetPassword isEmailConfirmed={verified} field={field} code={code} />
+        <PageResetPassword isEmailConfirmed={verified} />
       </WrapperPage>
     </div>
   )
@@ -38,8 +36,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     props: {
 
       ...commonContent,
-      code: (query.code) || null,
-      field: (query.enterField) || null,
       verified: (query.verified && query.verified === "ok") || false,
       self: self.status ? self.payload.data : null,
     },

@@ -20,7 +20,7 @@ export default async function handler(
             console.log(verifyResponse.status)
         }
 
-        return res.redirect(`/forgotenpass?verified=ok&code=${query.has}&enterField=${query.enterField}`);
+        return res.redirect(`/codeconfirmation?code=${query.has}&email=${query.enterField}`);
 
     }
 
