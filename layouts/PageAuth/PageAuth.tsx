@@ -1,4 +1,4 @@
-import { useCallback, useEffect,useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
@@ -52,7 +52,7 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
   const { setErrorNotification, setSucceedNotification } = useNotification();
 
   const [message, setMessage] = useState("")
-   // FORMS
+  // FORMS
   const {
     register,
     handleSubmit,
@@ -88,9 +88,6 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
     [isSignup]
   );
 
-  useEffect(() => {
-    console.log("checkboxValue: ", checkboxValue);
-  }, [checkboxValue]);
 
   const handleAuth = (formValues: LoginSignupFormValues) => {
     const { email_phone, password, password_confirmation } = formValues;
@@ -186,13 +183,13 @@ const PageAuth: React.FC<Props> = ({ className, isSignup, verified }) => {
                 className={styles.auth__formField}
               />
             )}
-        <Text
-                  color="hotred"
-                  size="sm"
-                  className={styles.auth__errorMessage}
-                >
-                  {message}
-                </Text>
+            <Text
+              color="hotred"
+              size="sm"
+              className={styles.auth__errorMessage}
+            >
+              {message}
+            </Text>
             <div className={styles.auth__formBottomBlock}>
               <Checkbox
                 name={isSignup ? "termsconditions" : "remember_me"}

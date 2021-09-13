@@ -25,6 +25,7 @@ const signupSchema = object().shape({
 
 const forgotPassword = object().shape({
   email: string().required().email(),
+
 });
 const resetPassword = object().shape({
   password: string().required(),

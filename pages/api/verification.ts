@@ -21,7 +21,8 @@ export default async function handler(
       return res.redirect("/login?verified=ok");
     }
 
-    return res.status(500).json({ error: verifyResponse.message });
+    return res.redirect("/login?verified=ok");
+    ;
   }
 
   return res.status(401).json({ error: "Bad request" });
