@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import { parseCookies, destroyCookie } from "nookies";
-
 // Import CONSTANTS
 import { COMMON } from "const";
 import { libHooks } from "hooks";
@@ -40,7 +39,13 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean,) => {
     restorePassword(data.email).then((sendMailResponse) => {
       if (sendMailResponse.status) {
         setSucceedNotification("We sended you email")
+        if (sendMailResponse.payload.type === "email") {
+          route.push("/login");
+        } else {
+          route.push(`/phoneconfirm?type=recover&phone=${data.email}`);
+        }
       }
+
       else {
         setErrorNotification("This email is not existing or we have some problems up there")
       }

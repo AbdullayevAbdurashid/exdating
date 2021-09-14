@@ -17,10 +17,12 @@ import { CODE_INPUTS } from "./PagePhoneConfirmation.template";
 import styles from "./PagePhoneConfirmation.module.scss";
 
 type Props = {
+  phone?: any
+  isRestore?: boolean;
   className?: string;
 };
 
-const PagePhoneConfirmation: React.FC<Props> = ({ className }) => {
+const PagePhoneConfirmation: React.FC<Props> = ({ className, isRestore, phone }) => {
   const classNames = [styles.phoneConfirmation, className].join(" ");
 
   const {
@@ -41,7 +43,7 @@ const PagePhoneConfirmation: React.FC<Props> = ({ className }) => {
   );
 
   const handleFormSubmit = (data: PhoneConfirmationFormValues) =>
-    onSubmit(data);
+    onSubmit(data, phone);
 
   const handleOnValueSet = (index: number) => {
     const formvalues = getValues();
@@ -107,7 +109,7 @@ const PagePhoneConfirmation: React.FC<Props> = ({ className }) => {
           </Button>
         </form>
 
-        <div className={styles.phoneConfirmation__status}>
+        {/* <div className={styles.phoneConfirmation__status}>
           {codeTimer !== 0 ? (
             <div className={styles.phoneConfirmation__statusTimer}>
               <Text size="xsm" color="greyDark" inline>
@@ -141,7 +143,7 @@ const PagePhoneConfirmation: React.FC<Props> = ({ className }) => {
               </Text>
             </Button>
           )}
-        </div>
+        </div> */}
       </BoxSimpleRounded>
     </WrapperAuth>
   );

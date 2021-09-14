@@ -53,6 +53,7 @@ type PhoneConfirmationFormValues = {
   num2: string;
   num3: string;
   num4: string;
+  values: string;
 };
 
 type PasswordResetFormValues = {

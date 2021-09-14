@@ -23,58 +23,61 @@ interface SignupResponse extends SucceedDefaultResponse {
 /* =========== AUTH ================== */
 interface RestorePasswordResponse
   extends SucceedDefaultResponse,
-    RestorePasswordConfirmationCode {}
+  RestorePasswordConfirmationCode {
+  type: "email" | "phone";
+
+}
 /* =========== USER ================== */
 interface SelfResponse
   extends SucceedDefaultResponse,
-    ResponseWithData<UserSelf> {}
+  ResponseWithData<UserSelf> { }
 interface UserProfileResponse
   extends SucceedDefaultResponse,
-    ResponseWithData<UserProfile> {}
+  ResponseWithData<UserProfile> { }
 interface TopUserResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<UserTop[]> {}
+  ResponseWithDataList<UserTop[]> { }
 /* =========== SUBSCRIBE ================== */
 // TODO Поменять типы UserSubscription и UserSubscriber местами как бек поправит апи
 interface SubscribersListResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<UserSubscription[]> {}
+  ResponseWithDataList<UserSubscription[]> { }
 interface SubscriptionListResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<UserSubscriber[]> {}
+  ResponseWithDataList<UserSubscriber[]> { }
 /* =========== CITY, COUNTRY ================== */
 interface CountryResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<Country[]> {}
+  ResponseWithDataList<Country[]> { }
 
 interface CityResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<City[]> {}
+  ResponseWithDataList<City[]> { }
 /* =========== FEEDBACKS ================== */
 interface FeedbackResponse
   extends SucceedDefaultResponse,
-    ResponseWithData<Feedback> {}
+  ResponseWithData<Feedback> { }
 
 interface FeedbackBestResponse
   extends SucceedDefaultResponse,
-    ResponseWithData<FeedbackBest[]> {}
+  ResponseWithData<FeedbackBest[]> { }
 
-interface FeedbackLikeResponse extends SucceedDefaultResponse, Like {}
-interface FeedbackNotDecideResponse extends SucceedDefaultResponse, NotDecide {}
-interface FeedbackDislikeResponse extends SucceedDefaultResponse, Dislike {}
+interface FeedbackLikeResponse extends SucceedDefaultResponse, Like { }
+interface FeedbackNotDecideResponse extends SucceedDefaultResponse, NotDecide { }
+interface FeedbackDislikeResponse extends SucceedDefaultResponse, Dislike { }
 
 interface FeedbacksAllResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<FeedbackBest[]> {}
+  ResponseWithDataList<FeedbackBest[]> { }
 /* =========== SEARCH ================== */
 interface SearchGlobalResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<FeedbackSearch[]> {}
+  ResponseWithDataList<FeedbackSearch[]> { }
 /* =========== TRACK ACCOUNT ================== */
 interface TrackingResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<TrackAccount[]> {}
-interface AddTrackingResponse extends SucceedDefaultResponse {}
+  ResponseWithDataList<TrackAccount[]> { }
+interface AddTrackingResponse extends SucceedDefaultResponse { }
 /* =========== AVATAR ================== */
 interface AvatarResponse extends SucceedDefaultResponse {
   url: string;
@@ -82,15 +85,15 @@ interface AvatarResponse extends SucceedDefaultResponse {
 /* =========== NOTIFICATIONS ================== */
 interface NotificationsResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<[]> {}
+  ResponseWithDataList<[]> { }
 /* =========== COMMENTS ================== */
 interface BestCommentsResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<ECommentBase[]> {}
+  ResponseWithDataList<ECommentBase[]> { }
 interface FeedbackCommentsResponse
   extends SucceedDefaultResponse,
-    ResponseWithDataList<EComment[]> {}
+  ResponseWithDataList<EComment[]> { }
 /* =========== HASHTAGS ================== */
 interface PopularHashtagsResponse
   extends SucceedDefaultResponse,
-    ResponseWithData<HashtagPopular[]> {}
+  ResponseWithData<HashtagPopular[]> { }
