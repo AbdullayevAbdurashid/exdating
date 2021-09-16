@@ -35,11 +35,12 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean,) => {
     ),
   });
 
+  const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const handleConfirmEmail = (data: PasswordResetFormValues) => {
     restorePassword(data.email).then((sendMailResponse) => {
       if (sendMailResponse.status) {
-        setSucceedNotification("We sended you email")
-        if (sendMailResponse.payload.type === "email") {
+        setSucceedNotification(data.email.match(mailformat) ? "We sended you email" : "We sended you code")
+        if (data.email.match(mailformat)) {
           route.push("/login");
         } else {
           route.push(`/phoneconfirm?type=recover&phone=${data.email}`);
@@ -47,11 +48,10 @@ const useResetPasswordHandlers = (isEmailConfirmed?: boolean,) => {
       }
 
       else {
-        setErrorNotification("This email is not existing or we have some problems up there")
+        setErrorNotification(data.email.match(mailformat) ? "This email is not existing or we have some problems up there" : "This phone number is not existing or we have some problems up there")
       }
     })
   }
-
 
 
   const handleChangePassword = (data: PasswordResetFormValues) => {

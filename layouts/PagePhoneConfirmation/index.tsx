@@ -54,7 +54,6 @@ const PagePhoneConfirmation: React.FC<Props> = ({ className, isRestore, phone })
       inputListRefs.current[index + 1].current?.focus();
     }
   };
-
   return (
     <WrapperAuth onBack={onRouteBack}>
       <BoxSimpleRounded className={classNames}>

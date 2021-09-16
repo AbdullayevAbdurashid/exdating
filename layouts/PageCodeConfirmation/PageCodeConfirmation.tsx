@@ -1,6 +1,6 @@
 // Import COMPONENTS
 import { BoxSimpleRounded, Text, Button, Input } from "components";
-
+import { useEffect, useRef } from "react"
 // Import CONTROLLERS
 import useCodeConfirmationController from "./PageCodeConfirmation.controller";
 
@@ -17,42 +17,19 @@ type Props = {
 
 const PageCodeConfirmation: React.FC<Props> = ({ email, code }) => {
   const classNames = [styles.codeConfirmation].join(" ");
+  const formRef = useRef(null);
 
   const {
     form: { register, errors, handleSubmit },
     actions: { handleConfirmCode, handleRouteBack },
   } = useCodeConfirmationController(email, code);
+  useEffect(() => {
+    handleConfirmCode()
+  }, [])
   return (
     <WrapperAuth onBack={handleRouteBack}>
       <BoxSimpleRounded className={classNames}>
-        <Text as="h5" color="greyDark" fontWeight="semibold">
-          Confirm your email
-        </Text>
-
-        <form
-          className={styles.codeConfirmation__form}
-          onSubmit={handleSubmit(handleConfirmCode)}
-        >
-          <Input
-            className={styles.codeConfirmation__input}
-            register={register}
-            type="text"
-            placeholder={code}
-            name="code"
-            error={errors.code}
-            value={code}
-          />
-
-          <Button
-            className={styles.codeConfirmation__btnSubmit}
-            theme="gradient"
-            type="submit"
-          >
-            <Text color="white" size="sm">
-              Confirm
-            </Text>
-          </Button>
-        </form>
+        <h1> Processing...</h1>
       </BoxSimpleRounded>
     </WrapperAuth>
   );
